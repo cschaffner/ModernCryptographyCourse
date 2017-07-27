@@ -1,0 +1,96 @@
+\documentclass[a4paper,10pt,landscape,twocolumn]{scrartcl}
+
+%% Settings
+\newcommand\problemset{1}
+\newcommand\deadline{Monday, 11 September 2017, 20:00h}
+\newif\ifcomments
+\commentsfalse % hide comments
+%\commentstrue % show comments
+
+%% Packages
+\usepackage[english]{exercises}
+\usepackage{wasysym}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor = blue, linkcolor = blue}
+
+%% Macros
+\input{macros}
+
+\begin{document}
+
+\problems
+
+{\sffamily\noindent
+We will work on the following exercises together during the work sessions on Tuesday and Friday. 
+
+The last questions are marked as homework exercises. 
+Your homework must be handed in within one week \textbf{electronically via Canvas before \deadline}. This deadline is strict and late submissions are graded with a 0. At the end of the course, the lowest of all the homework grades will be dropped. 
+
+You are strongly encouraged to work together on the exercises, including the homework. However, after this discussion phase, you have to write down and submit your own individual solution. }
+
+\begin{exercise}[Formal definitions]
+In the Katz-Lindell [KL] book, the \emph{shift cipher} is informally described as follows: Algorithm \gen outpus a uniform key $k \in \{0,1,\ldots, 25\}$; algorithm \enc takes a key $k$ and a plaintext and shifts each letter of the plaintext forward $k$ positions (wrapping around at the end of the alphabet); and algorithm \dec takes a key $k$ and a ciphertext and shifs every letter of the ciphertext backward $k$ positions.
+
+In a more formal mathematical language, we can define the shift cipher as follows: Let us identify numbers and English letters in the natural way ($a=0, b=1, c=2$ etc.). Then, the message space $\mathcal{M}$ is any finite sequence $m=m_1 m_2 \cdots m_\ell$ where $m_i \in \{0,1,\ldots,25\}$.
+\begin{align*}
+\gen&: k \leftarrow \{0,1,\ldots, 25\} \, ,\\
+\enc_k(m_1 m_2 \ldots m_\ell) &= c_1 c_2 \ldots c_\ell  \mbox{ where }c_i = [(m_i + k) \mod 26] \, ,\\
+\dec_k(c_1 c_2 \ldots c_\ell) &= m_1 m_2 \ldots m_\ell  \mbox{ where }m_i = [(c_i - k) \mod 26] \, .
+\end{align*}
+
+Provide formal definitions for $\gen, \enc, \dec$ for 
+\begin{subex}
+the mono-alphabetic substition cipher,
+\end{subex}
+\begin{subex}
+the Vigen{\`e}re cipher.
+\end{subex}
+\end{exercise}
+
+
+\begin{exercise}[Chosen-plaintext attacks]
+Let us consider the scenario of \emph{chosen-plaintext attacks}. In this scenario, an attacker has the ability to obtain plaintext/ciphertext pairs (under the same unknown key) for plaintexts of its choice. For example, for the case of a shift cipher, the attacker might ask for encryptions of messages \texttt{foo} and \texttt{bar} and obtains (plaintext,ciphertext) pairs \texttt{(foo,oxx)} and \texttt{(bar,kja)}.
+
+Show that shift, mono-alphabetic substition and Vigen{\`e}re ciphers are all trivial to break using a chosen-plaintext attack. How much chosen plaintext is required to recover the key for each of the ciphers?
+\end{exercise}
+
+
+\begin{exercise}[Birthday paradox]
+This exercise deals with some basic probability as described in Appendix A.3 of the book [KL]. Compute the probability that any two students in the room have the same birthday (ignoring the birth year).
+\end{exercise}
+
+
+\begin{exercise}[Asymptotic growth rate]
+Let $\eps$ and $c$ be arbitrary constants such that $0<\eps<1<c$. Order the following terms in increasing order of their
+  asymptotic growth rates.
+\[ n^n \quad \exp(\sqrt{n}) \quad 1 \quad \log\log n \quad
+c^{c^n} \quad n^c \quad n^\eps \quad n^{\log n} \quad \log n \quad c^n
+\]
+{\small Hint: In some cases, it might help to express two terms you
+  want to compare in the form $e^{\ldots}$ and then compare their exponents.}
+\end{exercise}
+
+
+\begin{exercise}[Logical Contrapositives]
+In logic, \href{https://en.wikipedia.org/wiki/Contraposition}{contraposition} is an inference that says that a conditional statement $A \Rightarrow B$ is logically equivalent to its contrapositive $\not B \Rightarrow \not A$. For instance, the proposition ``If the weather is good, then I'm biking to work.'' can be restated as ``If I'm not biking to work, then the weather is bad.''
+
+State the contrapositive of the following statements:
+\begin{subex}
+If it rains, the trees get wet.
+\end{subex}
+\begin{subex}
+If the car drives, its fuel tank is not empty.
+\end{subex}
+\begin{subex}
+If p is a prime, then p = 2 or p is odd.
+\end{subex}
+\begin{subex}
+If assumption X holds, protocol Y is secure.
+\end{subex}
+\begin{subex}
+If you can factorize efficiently, the RSA protocol is insecure.
+\end{subex}
+\end{exercise}
+
+
+\end{document}
