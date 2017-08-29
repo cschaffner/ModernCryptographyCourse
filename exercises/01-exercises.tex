@@ -21,15 +21,17 @@
 \problems
 
 {\sffamily\noindent
-We will work on the following exercises together during the work sessions on Tuesday and Friday. 
+We will work on the following exercises together during the work sessions on Tuesday,  and Friday. 
 
-The last questions are marked as homework exercises. 
-Your homework must be handed in within one week \textbf{electronically via Canvas before \deadline}. This deadline is strict and late submissions are graded with a 0. At the end of the course, the lowest of all the homework grades will be dropped. 
+Your homework problems are very similar to Problems 4 and 5. Your homework must be handed in within one week \textbf{electronically via Canvas before \deadline}. This deadline is strict and late submissions are graded with a 0. At the end of the course, the lowest of all the homework grades will be dropped. 
 
-You are strongly encouraged to work together on the exercises, including the homework. However, after this discussion phase, you have to write down and submit your own individual solution. }
+You are strongly encouraged to work together on these problems as well as the homework. However, after this discussion phase, you have to write down and submit your own individual solutions. 
+
+The problems marked with $\ast$ are more challenging bonus problems, often referring to extra material covered only in the [KL] book (or elsewhere), but possibly not in the videos. These bonus problems are optional and will not be part of the material you have to master for the final exam. 
+}
 
 \begin{exercise}[Formal definitions]
-In the Katz-Lindell [KL] book, the \emph{shift cipher} is informally described as follows: Algorithm \gen outpus a uniform key $k \in \{0,1,\ldots, 25\}$; algorithm \enc takes a key $k$ and a plaintext and shifts each letter of the plaintext forward $k$ positions (wrapping around at the end of the alphabet); and algorithm \dec takes a key $k$ and a ciphertext and shifs every letter of the ciphertext backward $k$ positions.
+In the Katz-Lindell [KL] book, the \emph{shift cipher} is informally described as follows: ``Algorithm \gen outpus a uniform key $k \in \{0,1,\ldots, 25\}$; algorithm \enc takes a key $k$ and a plaintext and shifts each letter of the plaintext forward $k$ positions (wrapping around at the end of the alphabet); and algorithm \dec takes a key $k$ and a ciphertext and shifs every letter of the ciphertext backward $k$ positions.''
 
 In a more formal mathematical language, we can define the shift cipher as follows: Let us identify numbers and English letters in the natural way ($a=0, b=1, c=2$ etc.). Then, the message space $\mathcal{M}$ is any finite sequence $m=m_1 m_2 \cdots m_\ell$ where $m_i \in \{0,1,\ldots,25\}$.
 \begin{align*}
@@ -88,8 +90,12 @@ If p is a prime, then p = 2 or p is odd.
 If assumption X holds, protocol Y is secure.
 \end{subex}
 \begin{subex}
-If you can factorize efficiently, the RSA protocol is insecure.
+The RSA protocol is insecure, if you can factorize efficiently.
 \end{subex}
+\end{exercise}
+
+\begin{exercise}[$\ast$ Breaking the Vigen{\`e}re cipher]
+See Canvas for the bonus material.
 \end{exercise}
 
 
