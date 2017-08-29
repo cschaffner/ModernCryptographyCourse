@@ -1,0 +1,101 @@
+\documentclass[a4paper,10pt,landscape,twocolumn]{scrartcl}
+
+%% Settings
+\newcommand\problemset{x2}
+\newcommand\deadline{Thursday, 14 September 2017, 20:00h}
+\newif\ifcomments
+\commentsfalse % hide comments
+%\commentstrue % show comments
+
+%% Packages
+\usepackage[english]{exercises}
+\usepackage{wasysym}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor = blue, linkcolor = blue}
+
+%% Macros
+\input{macros}
+
+\begin{document}
+
+\problems
+
+{\sffamily\noindent
+We will work on the following exercises together during the work sessions on Tuesday and Friday. 
+
+The last questions are marked as homework exercises. 
+Your homework must be handed in within one week \textbf{electronically via Canvas before \deadline}. This deadline is strict and late submissions are graded with a 0. At the end of the course, the lowest of all the homework grades will be dropped. 
+
+You are strongly encouraged to work together on the exercises, including the homework. However, after this discussion phase, you have to write down and submit your own individual solution. }
+
+
+\begin{exercise}[Probability theory and Bayes' rule]
+Let $E_1$ and $E_2$ be probability events. Then, $E_1 \wedge E_2$ denotes their conjunction, i.e. $E_1
+    \wedge E_2$ is the event that \emph{both} $E_1$ and $E_2$ occur. The
+    \emph{conditional probability of $E_1$ given $E_2$}, denoted
+    $\Pr[E_1 | E_2]$ is defined as
+    \[ \Pr[E_1 | E_2] := \frac{ \Pr[E_1 \wedge E_2] }{\Pr[E_2]} \]
+    as long as $\Pr[E_2] \neq 0$.
+
+\begin{subex}
+Let $E_1$ and $E_2$ be probability events with $Pr[E_2] \neq 0$. Using the definitions above, prove what is known as \emph{Bayes' rule}:
+\[ \Pr[E_1 | E_2] = \frac{ \Pr[E_1] \cdot \Pr[E_2 | E_1] }{\Pr[E_2]} \, . \]
+\end{subex}
+
+\begin{subex} Let the probability that a news article contains the word
+    \emph{president} be 20\%. The probability that it contains the word
+    \emph{president} if it already contains the word \emph{Trump} is
+    35\%. The probability that it contains the word \emph{Trump}is 10\%.
+    Under these assumptions, what is the probability that a news article
+    contains the word \emph{Trump} if it already contains the word \emph{president}?
+\end{subex}
+
+\begin{subex} Let the probability that a certain cryptographic protocol is
+    \emph{secure} and \emph{efficient} be 10\%. The probability that it is
+    \emph{not secure} if it is \emph{effficient} is 80\%. What is the
+    probability that
+    \begin{enumerate}
+      \item the protocol is \emph{secure} if it is \emph{efficient}?
+      \item the protocol is \emph{efficient}?
+    \end{enumerate}
+\end{subex}  
+
+\end{exercise}
+  
+
+\begin{exercise}[Perfect security]
+Archaeologists found the following encryption table --- unfortunately it is not complete.
+  \begin{center}
+    \begin{tabular}{c||c|c|c|c}
+      & $>$ & $\vee$ & $<$ & $\wedge$ \\
+      \hline
+      \hline
+      $\bullet$ &  &  & $<$ & $\wedge$ \\
+      \hline
+      $\leftrightarrows$ & $<$ &  & $>$ &  \\
+      \hline
+      $\circlearrowleft$ & $\wedge$ & $>$ &  & \\
+      \hline
+      $\circlearrowright$ &  &  &  &  \\
+    \end{tabular}
+  \end{center}
+  On another papyrus it is explained that this encryption was used during war.
+  The movements ``left'', ``right'', ``attack'' and ``withdrawal'' were represented by $\mathcal{M} = \{<,>,\wedge,\vee\}$.
+  The keyspace was $\mathcal{K} = \{\bullet,\leftrightarrows,\circlearrowleft, \circlearrowright\}$.
+  Ciphertext and plaintext used the same alphabet, i.e.~$\mathcal{C} = \mathcal{M}$.
+
+  The key was picked by tossing a coin twice.
+  For every transmission a new key was used.
+
+\begin{subex}
+Complete the table to form a perfectly secure encryption scheme.
+\end{subex}
+
+\begin{subex}
+When using the one-time pad with the key $k=0^\ell$, we have that $\enc_k(m)=k \oplus m = m$ and the message is sent in the clear! It has therefore been suggested to modify the one-time pad by only encrypting with $k \neq 0^\ell$ (i.e., to have \gen choose $k$ uniformly from the set of \emph{nonzero} keys of length $\ell$). Is this modified scheme still perfectly secret? Explain.
+\end{subex}
+
+\end{exercise}
+
+
+\end{document}
