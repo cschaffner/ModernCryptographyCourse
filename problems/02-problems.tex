@@ -1,7 +1,7 @@
 \documentclass[a4paper,10pt,landscape,twocolumn]{scrartcl}
 
 %% Settings
-\newcommand\problemset{x2}
+\newcommand\problemset{2}
 \newcommand\deadline{Thursday, 14 September 2017, 20:00h}
 \newif\ifcomments
 \commentsfalse % hide comments
@@ -21,10 +21,7 @@
 \problems
 
 {\sffamily\noindent
-We will work on the following exercises together during the work sessions on Tuesday and Friday. 
-
-The last questions are marked as homework exercises. 
-Your homework must be handed in within one week \textbf{electronically via Canvas before \deadline}. This deadline is strict and late submissions are graded with a 0. At the end of the course, the lowest of all the homework grades will be dropped. 
+We will work on the following exercises together during the work session on Friday, 8 Sep 2017.
 
 You are strongly encouraged to work together on the exercises, including the homework. However, after this discussion phase, you have to write down and submit your own individual solution. }
 
@@ -62,6 +59,21 @@ Let $E_1$ and $E_2$ be probability events with $Pr[E_2] \neq 0$. Using the defin
 
 \end{exercise}
   
+\begin{exercise}[Shift cipher is not perfectly secure]
+Let us consider the shift cipher with the following message distribution: $\Pr[M = \mathtt{ik}]=0.1, \Pr[M = \mathtt{op}]=0.3, \Pr[M = \mathtt{de}]=0.6$. 
+\begin{subex}
+Calculate the probability $\Pr[M=\mathtt{ik} \mid C=\mathtt{ab}]$ that the message $\mathtt{ik}$ was encrypted when
+ ciphertext $\mathtt{ab}$ is observed.
+\end{subex}
+\begin{subex}
+Calculate the probability $\Pr[M=\mathtt{op} \mid C=\mathtt{ab}]$ that the message $\mathtt{op}$ was encrypted when
+ ciphertext $\mathtt{ab}$ is observed.
+\end{subex}
+\begin{subex}
+Conclude that the shift cipher is not perfectly secure.
+\end{subex}
+\end{exercise}
+
 
 \begin{exercise}[Perfect security]
 Archaeologists found the following encryption table --- unfortunately it is not complete.
@@ -87,15 +99,14 @@ Archaeologists found the following encryption table --- unfortunately it is not 
   The key was picked by tossing a coin twice.
   For every transmission a new key was used.
 
-\begin{subex}
 Complete the table to form a perfectly secure encryption scheme.
-\end{subex}
-
-\begin{subex}
-When using the one-time pad with the key $k=0^\ell$, we have that $\enc_k(m)=k \oplus m = m$ and the message is sent in the clear! It has therefore been suggested to modify the one-time pad by only encrypting with $k \neq 0^\ell$ (i.e., to have \gen choose $k$ uniformly from the set of \emph{nonzero} keys of length $\ell$). Is this modified scheme still perfectly secret? Explain.
-\end{subex}
-
 \end{exercise}
+
+\begin{exercise}[Message in the clear]
+When using the one-time pad with the key $k=0^\ell$, we have that $\enc_k(m)=k \oplus m = m$ and the message is sent in the clear! It has therefore been suggested to modify the one-time pad by only encrypting with $k \neq 0^\ell$ (i.e., to have \gen choose $k$ uniformly from the set of \emph{nonzero} keys of length $\ell$). Is this modified scheme still perfectly secret? Explain.
+\end{exercise}
+
+
 
 
 \end{document}
