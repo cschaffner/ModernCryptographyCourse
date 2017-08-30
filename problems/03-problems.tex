@@ -10,6 +10,7 @@
 %% Packages
 \usepackage[english]{exercises}
 \usepackage{wasysym}
+\usepackage{graphicx}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true, urlcolor = blue, linkcolor = blue}
 
@@ -27,6 +28,39 @@ The last questions are marked as homework exercises.
 Your homework must be handed in within one week \textbf{electronically via Canvas before \deadline}. This deadline is strict and late submissions are graded with a 0. At the end of the course, the lowest of all the homework grades will be dropped. 
 
 You are strongly encouraged to work together on the exercises, including the homework. However, after this discussion phase, you have to write down and submit your own individual solution. }
+
+\begin{exercise}[Insecurity of Multi-Time Pad]
+Two ASCII messages containing English letters and spaces only are encrypted using the one-time pad and the same key. The 10th byte of the first ciphertext is observed to be \texttt{0xB7} and the 10th byte of the second ciphertext is observed to be \texttt{0xE7}. Let $m_1$ (resp., $m_2$) denote the 10th ASCII character in the first (resp., second) message. What is the most you can conclude about $m_1$ and $m_2$?
+\end{exercise}
+
+\begin{figure}[h]
+\center
+\includegraphics[width=8cm]{PrivKexperiment.jpg}
+\caption{The $\PrivK^{\eav}_{\mathcal{A},\Pi}$ experiment \label{fig}}
+\end{figure}
+
+\begin{exercise}[The $\PrivK^{\eav}_{\mathcal{A},\Pi}$ experiment (see Figure~\ref{fig})]
+\begin{subex}
+Let $\Pi$ be the shift cipher, and let us consider an adversary $\mathcal{A}$ that submits $m_0 = \mathtt{a}$ and $m_1 = \mathtt{a}$. What is $\Pr[\PrivK^{\eav}_{\mathcal{A},\Pi}=1]$?
+\end{subex}
+
+\begin{subex}
+Let $\Pi$ be the shift cipher, and let us consider an adversary $\mathcal{A}$ that submits $m_0 = \mathtt{a}$ and $m_1 = \mathtt{b}$. What is $\Pr[\PrivK^{\eav}_{\mathcal{A},\Pi}=1]$?
+\end{subex}
+
+\begin{subex}
+Let $\Pi$ be the shift cipher, and let us consider an adversary $\mathcal{A}$ that submits $m_0 = \mathtt{aa}$ and $m_1 = \mathtt{bb}$. What is $\Pr[\PrivK^{\eav}_{\mathcal{A},\Pi}=1]$?
+\end{subex}
+
+\begin{subex}
+Let $\Pi$ be the shift cipher, and let us consider an adversary $\mathcal{A}$ that submits $m_0 = \mathtt{aa}$ and $m_1 = \mathtt{ab}$. What is the maximal value for $\Pr[\PrivK^{\eav}_{\mathcal{A},\Pi}=1]$? How can it be achieved?
+\end{subex}
+
+\begin{subex}
+Let $\Pi$ be the monoalphabetic substitution cipher. Give an adversary $\mathcal{A}$ that manages to win the $\PrivK^{\eav}_{\mathcal{A},\Pi}$ experiment all the time, i.e.\ such that $\Pr[\PrivK^{\eav}_{\mathcal{A},\Pi}=1] = 1$.
+\end{subex}
+\end{exercise}
+
 
 \begin{exercise}[Exercise~3.1 from  $\text{[KL]}$ ]
 Prove Proposition 3.6:
