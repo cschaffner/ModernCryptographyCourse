@@ -1,0 +1,52 @@
+\documentclass[a4paper,10pt,landscape,twocolumn]{scrartcl}
+
+%% Settings
+\newcommand\problemset{4}
+\newcommand\deadline{Thursday, 14 September 2017, 20:00h}
+\newif\ifcomments
+\commentsfalse % hide comments
+%\commentstrue % show comments
+
+%% Packages
+\usepackage[english]{exercises}
+\usepackage{wasysym}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor = blue, linkcolor = blue}
+\usepackage{enumitem}
+
+%% Macros
+\input{macros}
+
+\begin{document}
+
+\problems
+
+{\sffamily\noindent
+We will work on the following exercises together during the work sessions on Tuesday. 
+
+The last questions are marked as homework exercises. 
+Your homework must be handed in within one week \textbf{electronically via Canvas before \deadline}. This deadline is strict and late submissions are graded with a 0. At the end of the course, the lowest of all the homework grades will be dropped. 
+
+You are strongly encouraged to work together on the exercises, including the homework. However, after this discussion phase, you have to write down and submit your own individual solution. }
+
+\begin{exercise}[Exercise~3.9 from  $\text{[KL]}$ ]
+  Prove \emph{unconditionally} the existence of a pseudorandom function $F : \{0,1\}^* \times \{0,1\}^∗\to \{0,1\}^∗$ with $\ell_{key}(n)=n$ and $\ell_{in}(n)=O(\log n)$.
+  \textbf{Hint:} Implement a uniform function with logarithmic input length.
+\end{exercise}
+
+\begin{exercise}[Exercise~3.14 from $\text{[KL]}$ ]
+Prove that if $F$ is a length-preserving pseudorandom function, then
+$G(s) \overset{\text{def}}{=} F_s(1)\Vert F_s(2)\Vert \cdots \Vert F_s(\ell)$ is a pseudorandom generator with expansion factor $\ell \cdot n$.
+\end{exercise}
+
+\begin{exercise}[Exercise~3.16 from $\text{[KL]}$ ]
+  Prove Proposition 3.27:
+  \textit{
+If $F$ is a pseudorandom permutation and additionally $\ell_{in}(n) \geq n$, then $F$ is also a pseudorandom function.
+  }
+  
+\textbf{Hint:} Use the results of Appendix A.4.
+
+\end{exercise}
+
+\end{document}
