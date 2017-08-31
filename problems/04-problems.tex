@@ -1,0 +1,55 @@
+\documentclass[a4paper,10pt,landscape,twocolumn]{scrartcl}
+
+%% Settings
+\newcommand\problemset{4}
+\newcommand\deadline{Thursday, 14 September 2017, 20:00h}
+\newif\ifcomments
+\commentsfalse % hide comments
+%\commentstrue % show comments
+
+%% Packages
+\usepackage[english]{exercises}
+\usepackage{wasysym}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor = blue, linkcolor = blue}
+\usepackage{enumitem}
+
+%% Macros
+\input{macros}
+
+\begin{document}
+
+\problems
+
+{\sffamily\noindent
+We will work on the following exercises together during the work sessions on Tuesday. 
+
+The last questions are marked as homework exercises. 
+Your homework must be handed in within one week \textbf{electronically via Canvas before \deadline}. This deadline is strict and late submissions are graded with a 0. At the end of the course, the lowest of all the homework grades will be dropped. 
+
+You are strongly encouraged to work together on the exercises, including the homework. However, after this discussion phase, you have to write down and submit your own individual solution. }
+
+\begin{exercise}[Exercise~3.5 from  $\text{[KL]}$ ]
+  Let $|G(s)| = \ell(|s|)$ for some $\ell$. Consider the following experiment:
+
+  \textbf{The PRG indistinguishability experiment} $\mathsf{PRG}_{\mathcal{A},G}(n)$:
+  \textit{
+  \begin{enumerate}[label=(\alph*)]
+\item  A uniform bit $b \in \{0,1\}$ is chosen. If $b = 0$ then choose a uniform $r \in \{0, 1\}^{\ell(n)}$; if $b = 1$ then choose a uniform $s \in \{0,1\}^n$ and set $r := G(s)$.
+\item The adversary $\mathcal{A}$ is given $r$, and outputs a bit $b'$.
+\item The output of the experiment is defined to be 1 if $b' = b$,
+  and 0 otherwise.
+  \end{enumerate}
+  }
+Provide a definition of a pseudorandom generator based on this experiment, and prove that your definition is equivalent to Definition 3.14. (That is, show that $G$ satisfies your definition if and only if it satisfies Definition 3.14.)
+  
+\end{exercise}
+
+\begin{exercise}[Exercise~3.7 from $\text{[KL]}$ ]
+Prove the converse of Theorem 3.18. Namely, show that if $G$ is not a pseudorandom generator then Construction 3.17 does not have indistinguishable encryptions in the presence of an eavesdropper.
+\end{exercise}
+
+  
+
+
+\end{document}
