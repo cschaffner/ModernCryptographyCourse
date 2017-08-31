@@ -1,0 +1,46 @@
+\documentclass[a4paper,10pt,landscape,twocolumn]{scrartcl}
+
+%% Settings
+\newcommand\problemset{6}
+\newcommand\deadline{Thursday, 14 September 2017, 20:00h}
+\newif\ifcomments
+\commentsfalse % hide comments
+%\commentstrue % show comments
+
+%% Packages
+\usepackage[english]{exercises}
+\usepackage{wasysym}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor = blue, linkcolor = blue}
+\usepackage{enumitem}
+
+%% Macros
+\input{macros}
+
+\begin{document}
+
+\problems
+
+{\sffamily\noindent
+We will work on the following exercises together during the work sessions on Tuesday. 
+
+The last questions are marked as homework exercises. 
+Your homework must be handed in within one week \textbf{electronically via Canvas before \deadline}. This deadline is strict and late submissions are graded with a 0. At the end of the course, the lowest of all the homework grades will be dropped. 
+
+You are strongly encouraged to work together on the exercises, including the homework. However, after this discussion phase, you have to write down and submit your own individual solution. }
+
+\begin{exercise}[Exercise~3.20 from  $\text{[KL]}$ ]
+  Consider a stateful variant of CBC-mode encryption where the sender simply increments the $IV$ by 1 each time a message is encrypted (rather than choosing $IV$ at random each time). Show that the resulting scheme is \emph{not} CPA-secure.
+\end{exercise}
+
+\begin{exercise}[Exercise~3.28 from $\text{[KL]}$ ]
+Show that the CBC, OFB, and CTR modes of operation do not yield CCA-secure encryption schemes (regardless of $F$).
+\end{exercise}
+
+\begin{exercise}[Exercise~3.29 from $\text{[KL]}$ ]
+  Let $\Pi_1 = (\enc_1, \dec_1)$ and $\Pi_2 = (\enc_2, \dec_2)$ be two encryption schemes for which it is known that at least one is CPA-secure (but you don’t know which one). Show how to construct an encryption scheme $\Pi$ that is guaranteed to be CPA-secure as long as at least one of $\Pi_1$ or $\Pi_2$ is CPA-secure. Provide a full proof of your solution.
+
+  \textbf{Hint:} Generate two plaintext messages from the original plaintext so that knowledge of either one reveals nothing about the original plaintext, but knowledge of both enables the original plaintext to be computed.
+\end{exercise}
+
+\end{document}
