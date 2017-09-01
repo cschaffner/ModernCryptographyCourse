@@ -68,8 +68,18 @@ Let $\Pi$ be the monoalphabetic substitution cipher. Give an adversary $\mathcal
 \end{exercise}
 
 
-\begin{exercise}[Exercise~3.1 from  $\text{[KL]}$ ]
-Prove Proposition 3.6:
+\begin{exercise}[Negligible functions]
+\begin{definition}
+A function $f: \Z^+ \rightarrow \R^+$ is called negligible if for
+every positive polynomial $p(n)$ there exists $n_0 \in \Z^+$ such that for all $n
+\geq n_0$, it holds that $f(n) \leq 1/p(n)$.
+\end{definition}
+
+\begin{subex}
+\end{subex}
+
+\begin{subex}
+Exercise~3.1 from  $\text{[KL]}$: Prove Proposition 3.6:
 Let $\negl_1$ and $\negl_2$ be negligible functions. Then,
 \begin{enumerate}
 \item The function $\negl_3$ defined by $\negl_3(n) = \negl_1(n)+\negl_2(n)$ is
@@ -77,6 +87,7 @@ Let $\negl_1$ and $\negl_2$ be negligible functions. Then,
 \item For any positive polynomial $p$, the function $\negl_4$ defined
   by $\negl_4(n) = p(n) \cdot \negl_1(n)$ is negligible.
 \end{enumerate}
+\end{subex}
 \end{exercise}
 
 \begin{exercise}[Exercise~3.2 from $\text{[KL]}$ ]
