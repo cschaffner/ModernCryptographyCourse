@@ -27,7 +27,10 @@ We will work on the following exercises together during the work sessions on Tue
 The last questions are marked as homework exercises. 
 Your homework must be handed in within one week \textbf{electronically via Canvas before \deadline}. This deadline is strict and late submissions are graded with a 0. At the end of the course, the lowest of all the homework grades will be dropped. 
 
-You are strongly encouraged to work together on the exercises, including the homework. However, after this discussion phase, you have to write down and submit your own individual solution. }
+You are strongly encouraged to work together on the exercises, including the homework. However, after this discussion phase, you have to write down and submit your own individual solution. 
+
+The problems marked with $\bigstar$ are more mathematical bonus problems. These bonus problems are optional and will not be part of the material you have to master for the final exam. 
+}
 
 \begin{exercise}[Insecurity of Multi-Time Pad]
 Two ASCII messages containing English letters and spaces only are encrypted using the one-time pad and the same key. The 10th byte of the first ciphertext is observed to be \texttt{0xB7} and the 10th byte of the second ciphertext is observed to be \texttt{0xE7}. Let $m_1$ (resp., $m_2$) denote the 10th ASCII character in the first (resp., second) message. What is the most you can conclude about $m_1$ and $m_2$?
@@ -69,25 +72,26 @@ Let $\Pi$ be the monoalphabetic substitution cipher. Give an adversary $\mathcal
 
 
 \begin{exercise}[Negligible functions]
-\begin{definition}
-A function $f: \Z^+ \rightarrow \R^+$ is called negligible if for
-every positive polynomial $p(n)$ there exists $n_0 \in \Z^+$ such that for all $n
-\geq n_0$, it holds that $f(n) \leq 1/p(n)$.
-\end{definition}
+Recall Definition 3.4: A function $f: \Z^+ \rightarrow \R^+$ is called \emph{negligible} if for
+every positive polynomial $p(n)$ there exists $N \in \Z^+$ such that for all integers $n> N$, it holds that $f(n) < \frac{1}{p(n)}$.
 
 \begin{subex}
+Example~3.5 states that $f(n) = 2^{-\sqrt{n}}$ is negligible. For the polynomial $p(n)=16 n^4$, give a possible $N$ as in the definition above, i.e.\ such that for all integers $n > N$, it holds that $f(n) < \frac{1}{p(n)}$.
 \end{subex}
 
 \begin{subex}
-Exercise~3.1 from  $\text{[KL]}$: Prove Proposition 3.6:
-Let $\negl_1$ and $\negl_2$ be negligible functions. Then,
-\begin{enumerate}
-\item The function $\negl_3$ defined by $\negl_3(n) = \negl_1(n)+\negl_2(n)$ is
-  negligible.
-\item For any positive polynomial $p$, the function $\negl_4$ defined
+Example~3.5 states that $f(n) = n^{-\log{n}}$ is negligible. For the polynomial $p(n)=16 n^4$, give a possible $N$ as in the definition above, i.e.\ such that for all integers $n > N$, it holds that $f(n) < \frac{1}{p(n)}$.
+\end{subex}
+
+\begin{subex**}
+Let $\negl_1$ and $\negl_2$ be negligible functions. Prove that the function $\negl_3$ defined by $\negl_3(n) = \negl_1(n)+\negl_2(n)$ is negligible.
+\end{subex**}
+
+\begin{subex**}
+For any positive polynomial $p$, the function $\negl_4$ defined
   by $\negl_4(n) = p(n) \cdot \negl_1(n)$ is negligible.
-\end{enumerate}
-\end{subex}
+\end{subex**}
+
 \end{exercise}
 
 \begin{exercise}[Exercise~3.2 from $\text{[KL]}$ ]
@@ -100,11 +104,9 @@ Prove that Definition~3.8 cannot be
   who outputs $m_0 \in \{0, 1\}$ and a uniform $m_1 \in \{0, 1\}^{q(n)+2}$.
 \end{exercise}
 
-\begin{exercise}[Exercise~3.3 from  $\text{[KL]}$ ]
-Say $\Pi=\left( \gen,\enc,\dec \right)$ is such that for $k\in \{0,1\}^n$, algorithm $\enc_k$ is only defined for messages of length at most $\ell(n)$ (for some polynomial $\ell$). Construct a scheme satisfying Definition~3.8 even when the adversary is \emph{not} restricted to outputting equal-length messages in $\PrivK^{\eav}_{\mathcal{A},\Pi}$. 
-
-  
-\end{exercise}
+% \begin{exercise}[Exercise~3.3 from  $\text{[KL]}$ ]
+% Say $\Pi=\left( \gen,\enc,\dec \right)$ is such that for $k\in \{0,1\}^n$, algorithm $\enc_k$ is only defined for messages of length at most $\ell(n)$ (for some polynomial $\ell$). Construct a scheme satisfying Definition~3.8 even when the adversary is \emph{not} restricted to outputting equal-length messages in $\PrivK^{\eav}_{\mathcal{A},\Pi}$. 
+% \end{exercise}
 
 \begin{exercise}[Exercise~3.4 from  $\text{[KL]}$ ]
 Prove the equivalence of Definition 3.8 and Definition 3.9 from the book [KL].
