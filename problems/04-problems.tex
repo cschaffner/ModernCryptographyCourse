@@ -11,6 +11,7 @@
 %% Packages
 \usepackage[english]{exercises}
 \usepackage{wasysym}
+\usepackage{graphicx}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true, urlcolor = blue, linkcolor = blue}
 \usepackage{enumitem}
@@ -27,20 +28,68 @@ We will work on the following exercises together during the work sessions on \wo
 
 You are strongly encouraged to work together on the exercises, including the homework. You do not have to hand in solutions to these problem sets.}
 
+\begin{exercise}[not PRGs]
+For all of the following constructions, explain why they are not PRGs. If necessary, give an explicit description of an efficient distinguisher.
+
+\begin{subex}
+Let $G(s)$ output $s$.
+\end{subex}
+
+\begin{subex}
+Let $G(s)$ output $s \| s$
+\end{subex}
+
+\begin{subex}
+Let $G(s)$ output $s \| \bigoplus_{i=1}^n s_i$.
+\end{subex}
+
+\end{exercise}
+
+\begin{exercise}[Basic properties of PRGs]
+Recall that the \href{https://en.wikipedia.org/wiki/Image_(mathematics)}{\emph{image} of a function} $f:A \rightarrow B$ is the subset $f(A)$ of $B$. Formally, 
+\[ \mathsf{im}(f) := f(A) = \{b \in B \mid \exists a \in A \mbox{ such that } b=f(a) \} \, .
+\]
+
+Let $G:\{0,1\}^n \rightarrow \{0,1\}^{2n}$ be a PRG. 
+
+\begin{subex}
+Let us assume that $G$ is \href{https://en.wikipedia.org/wiki/Injective_function}{injective}. How many different $2n$-bit strings $y$ are there in the image of $G$?
+\end{subex}
+
+\begin{subex}
+What is the fraction of images of $G$ among all $2n$-bit strings?
+\end{subex}
+
+\begin{subex}
+What is the probability for a given $y \in \{0,1\}^{2n}$ to be in the image of $G$? Express it in terms of $|\{x \in \{0,1\}^n \mid G(x)=y\} |$ and $n$.
+\end{subex}
+
+\end{exercise}
+
+\begin{figure}[h]
+\center
+\includegraphics[width=8cm]{PRGExperiment.jpg}
+\caption{The $\mathsf{PRG}_{\mathcal{A},G}$ experiment \label{fig}}
+\end{figure}
+
 \begin{exercise}[Exercise~3.5 from  $\text{[KL]}$ ]
   Let $|G(s)| = \ell(|s|)$ for some $\ell$. Consider the following experiment:
 
-  \textbf{The PRG indistinguishability experiment} $\mathsf{PRG}_{\mathcal{A},G}(n)$:
+  \textbf{The PRG indistinguishability experiment} $\mathsf{PRG}_{\mathcal{A},G}(n)$, see also Figure~\ref{fig}:
   \textit{
   \begin{enumerate}[label=(\alph*)]
-\item  A uniform bit $b \in \{0,1\}$ is chosen. If $b = 0$ then choose a uniform $r \in \{0, 1\}^{\ell(n)}$; if $b = 1$ then choose a uniform $s \in \{0,1\}^n$ and set $r := G(s)$.
-\item The adversary $\mathcal{A}$ is given $r$, and outputs a bit $b'$.
+\item  A uniform bit $b \in \{0,1\}$ is chosen. If $b = 0$ then choose a uniform $r \leftarrow \{0, 1\}^{\ell(n)}$ and set $w:=r$; if $b = 1$ then choose a uniform $s \leftarrow \{0,1\}^n$ and set $w := G(s)$.
+\item The adversary $\mathcal{A}$ is given $w$, and outputs a bit $b'$.
 \item The output of the experiment is defined to be 1 if $b' = b$,
   and 0 otherwise.
   \end{enumerate}
   }
 Provide a definition of a pseudorandom generator based on this experiment, and prove that your definition is equivalent to Definition 3.14. (That is, show that $G$ satisfies your definition if and only if it satisfies Definition 3.14.)
   
+\end{exercise}
+
+\begin{exercise}[Brute-forcing a PRG]
+Let $G:\{0,1\}^n \rightarrow \{0,1\}^{2n}$ be a PRG. Describe a \emph{computationally unbounded} adversary $\mathcal{A}$ that distinguishes the output of $G$ from a uniform $2n$-bit string with probability exponentially close 1. How does it work? Compute its exact distinguishing advantage. What is $\Pr[\mathsf{PRG}_{\mathcal{A},G}(n)=1]$ for this adversary?
 \end{exercise}
 
 \begin{exercise}[Exercise~3.7 from $\text{[KL]}$ ]
