@@ -1,9 +1,9 @@
 # Python 2 / 3
 # author: Christian Schaffner
+from random import randint
 
-KEY_LENGTH = 31
-KEY = ['00', '00', '00', '00', '00', '00', '00', '00', '00', '00', '00', '00', '00', '00', '00', '00', '00', '00', '00', '00', '00', '00', '00', '00', '00', '00', '00', '00', '00', '00', '00']
-# of course, I did not use the all-0 key when generating the ciphertexts
+KEY_LENGTH = 80
+KEY = ['{0:02x}'.format(randint(0,255)) for x in range(KEY_LENGTH)]
 
 """
 useful python commands:
@@ -39,13 +39,14 @@ def main():
     for line in  open('messages.txt', 'r'):
         ciphertext = ''
         pos = 0
-        for char in line.rstrip(): # ignore the \n character at the end of the line if it's there
+        for char in line.rstrip('\n'): # ignore the \n character at the end of the line if it's there
             ciphertext += '{0:02x}'.format((int(ord(char)) ^ int(KEY[pos], 16)))
             pos += 1
         fout.write('{}\n'.format(ciphertext))
 
     fout.close()
-
+    print(KEY)
+    return True
 
 
 if __name__ == "__main__":
