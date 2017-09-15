@@ -61,7 +61,7 @@ What is the fraction of images of $G$ among all $2n$-bit strings?
 \end{subex}
 
 \begin{subex}
-What is the probability for a given $y \in \{0,1\}^{2n}$ to be in the image of $G$? Express it in terms of $|\{x \in \{0,1\}^n \mid G(x)=y\} |$ and $n$.
+For a given $y \in \{0,1\}^{2n}$, what is $\Pr_{s \leftarrow \{0,1\}^n}[G(s) = y]$? Express it in terms of $|\{s \in \{0,1\}^n \mid G(s)=y\} |$ and $n$.
 \end{subex}
 
 \end{exercise}
@@ -88,13 +88,14 @@ Provide a definition of a pseudorandom generator based on this experiment, and p
   
 \end{exercise}
 
+\pagebreak
 \begin{exercise}[Brute-forcing a PRG]
 Let $G:\{0,1\}^n \rightarrow \{0,1\}^{2n}$ be a PRG. Describe a \emph{computationally unbounded} adversary $\mathcal{A}$ that distinguishes the output of $G$ from a uniform $2n$-bit string with probability exponentially close 1. How does it work? Compute its exact distinguishing advantage. What is $\Pr[\mathsf{PRG}_{\mathcal{A},G}(n)=1]$ for this adversary?
 \end{exercise}
 
-\begin{exercise}[Exercise~3.7 from $\text{[KL]}$ ]
+\begin{bonusexercise}[Exercise~3.7 from $\text{[KL]}$ ]
 Prove the converse of Theorem 3.18. Namely, show that if $G$ is not a pseudorandom generator then Construction 3.17 does not have indistinguishable encryptions in the presence of an eavesdropper.
-\end{exercise}
+\end{bonusexercise}
 
   
 
