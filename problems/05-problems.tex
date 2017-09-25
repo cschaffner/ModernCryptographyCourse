@@ -64,15 +64,9 @@ How many functions $F_k:\{0,1\}^n \rightarrow \{0,1\}^\ell$ are there if you var
 \end{subex}
 
 \begin{subex}
-What is the fraction of functions $F_k$ among all functions in $\mathsf{Func_{n,\ell}}$?
+Let $h(n,\ell)$ denote the fraction of functions $F_k$ among all functions in $\mathsf{Func_{n,\ell}}$. Argue that $h(n, \ell)$ is a negligible function in $n$. Argue that $h(n,\ell)$ is also negligible in $\ell$.
 \end{subex}
 
-\end{exercise}
-
-
-\begin{exercise}[Exercise~3.14 from $\text{[KL]}$ ]
-Argue that if $F$ is a length-preserving pseudorandom function, then
-$G(s) := F_s(1)\Vert F_s(2)\Vert \cdots \Vert F_s(\ell)$ is a pseudorandom generator with expansion factor $\ell \cdot n$.
 \end{exercise}
 
 
@@ -103,12 +97,20 @@ Define pseudorandom functions using this experiment, and prove that
 your definition is equivalent to Definition 3.25.
 \end{exercise}
 
+\pagebreak
 
-\begin{bonusexercise}[Exercise~3.9 from  $\text{[KL]}$ ]
-  Prove \emph{unconditionally} the existence of a pseudorandom function $F : \{0,1\}^* \times \{0,1\}^* \to \{0,1\}^*$ with $\ell_{key}(n)=n$ and $\ell_{in}(n)=O(\log n)$.
+\begin{exercise}[Exercise~3.14 from $\text{[KL]}$ ]
+Argue that if $F$ is a length-preserving pseudorandom function, then
+$G(s) := F_s(1)\Vert F_s(2)\Vert \cdots \Vert F_s(\ell)$ is a pseudorandom generator with expansion factor $\ell \cdot n$.
+\end{exercise}
+
+
+
+\begin{exercise}[Exercise~3.9 from  $\text{[KL]}$ ]
+  Prove \emph{unconditionally} the existence of a pseudorandom function $F : \{0,1\}^{n^2} \times \{0,1\}^{\log(n)} \to \{0,1\}^n$.
 
   \textbf{Hint:} Implement a uniform function with logarithmic input length.
-\end{bonusexercise}
+\end{exercise}
 
 
 
