@@ -37,7 +37,7 @@ Show that the CBC, OFB, and CTR modes of operation do not yield CCA-secure encry
 \end{exercise}
 
 \begin{exercise}[Exercise~3.29 from $\text{[KL]}$ ]
-  Let $\Pi_1 = (\enc_1, \dec_1)$ and $\Pi_2 = (\enc_2, \dec_2)$ be two encryption schemes for which it is known that at least one is CPA-secure (but you don't know which one). Show how to construct an encryption scheme $\Pi$ that is guaranteed to be CPA-secure as long as at least one of $\Pi_1$ or $\Pi_2$ is CPA-secure. Provide a full proof of your solution.
+  Let $\Pi_1 = (\gen_1,\enc_1, \dec_1)$ and $\Pi_2 = (\gen_2,\enc_2, \dec_2)$ be two encryption schemes for which it is known that at least one is CPA-secure (but you don't know which one). Show how to construct an encryption scheme $\Pi$ that is guaranteed to be CPA-secure as long as at least one of $\Pi_1$ or $\Pi_2$ is CPA-secure. Provide a full proof of your solution.
 
   \textbf{Hint:} Generate two plaintext messages from the original plaintext so that knowledge of either one reveals nothing about the original plaintext, but knowledge of both enables the original plaintext to be computed.
 \end{exercise}
