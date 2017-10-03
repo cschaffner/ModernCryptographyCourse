@@ -43,10 +43,7 @@ Consider the following MAC for messages of length $\ell(n)=2n-2$ using a pseudor
 secure MAC (even for fixed-length messages):
 \begin{enumerate}
 \item \mac outputs all blocks $t_1, \ldots , t_\ell$, rather than just $t_\ell$. (Verification only checks whether $t_\ell$ is correct.)
-\item A random initial block is used each time a message is
-  authenticated. That is, choose uniform $t_0 \in \{0, 1\}^n$, run
-  basic CBC-MAC over the "message" $t_0, m_1, \ldots , m_\ell$, and
-  output the tag $\langle t_0, t_\ell \rangle$. Verification is done in the natural way.
+\item A random initial value is used each time a message is authenticated. That is, $t_0 \in \{0, 1\}^n$ is chosen uniformly at random rather than being fixed to $0^n$, and the tag is $\langle t_0, t_\ell \rangle$. Verification is done in the natural way.
 \end{enumerate}
 \end{exercise}
 
