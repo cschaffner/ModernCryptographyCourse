@@ -1,0 +1,67 @@
+\documentclass[a4paper,10pt,landscape,twocolumn]{scrartcl}
+
+%% Settings
+\newcommand\problemset{8}
+\newcommand\worksession{Friday, 6. October 2017}
+\newif\ifcomments
+\commentsfalse % hide comments
+%\commentstrue % show comments
+
+%% Packages
+\usepackage[english]{exercises}
+\usepackage{wasysym}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor = blue, linkcolor = blue}
+\usepackage{enumitem}
+
+%% Macros
+\input{macros}
+
+
+
+\begin{document}
+
+\problems
+
+{\sffamily\noindent
+We will work on the following exercises together during the work sessions on \worksession.
+
+You are strongly encouraged to work together on the exercises, including the homework. You do not have to hand in solutions to these problem sets.}
+
+\begin{exercise}[The birthday attack]
+\begin{enumerate}
+	\item Assume that people's birthdays (the dates without the year) are independent and uniformly distributed among the dates except Febuary 29th. What is the smallest number of people such that the probability that two of them have the same birthday is larger than 99\%?
+	\item Consider the birthday attack on a hash function $H: \{0,1\}^*\to\{0,1\}^n$, i.e. the attack by calculating $H(x)$ for $2^{n/2}$ random values of $x$ and check for collisions. This attack uses $(m+n)2^{n/2}$ bits of memory, assuming we use $m$ bit inputs. In \htmladdnormallink{this blog post}{https://what-if.xkcd.com/63/}, Randall Munroe estimates Googles total memory to be 15 exabytes.  How do you have to choose the output length of your hash function to prevent a birthday atack by Google? Assume that Google uses $m\ge n$ and provide a length $n$ along with a proof that it is sufficient.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Hash functions and short inputs]
+	On some hash functions one can run a space-efficient birthday attack by using the fact that for the sequence $x_0=0^n$ and $x_{i+1}=H(x_i)$, if there exists a pair $i<j$ such that $x_i=x_j$, then there exists an index $i'<j$ such that $x_{i'}=x_{2i'}$\footnote{It is a nice exercise to prove that fact, but we don't ask for such a proof here.}.
+\begin{enumerate}
+	\item Argue that there could be hash functions where this attack never succeeds.
+	\item Prove that any hash function $H$ is literally collision free for inputs of length $O(\log n)$, i.e. $H(x)\neq H(x')$ for $x\neq x'$ for $|x|=O(\log n)$
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[HMAC?]
+  Let $H: \{0,1\}^*\to \{0,1\}^n$ be a collision resistand hash function. Construct collision resistant hash functions such that the following MAC functions are insecure.
+  \begin{enumerate}
+  	\item $\mathsf{MAC}_k(m)=H'(k\|m)$
+  	\item $\mathsf{MAC}_k(m)=H'(k\oplus m_0\|m_1)$, where $m=m_0\|m_1$ and $|m_0|=|k|$.
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Authenticate-then-encrypt]
+
+Given a CPA-secure encryption scheme $(\mathsf{Gen}_1, \mathsf{Enc}, \mathsf{Dec})$ and a MAC $(\mathsf{Gen}_2, \mathsf{MAC}, \mathsf{Vrfy})$, we construct an encryption scheme $(\mathsf{Gen}', \mathsf{Enc}', \mathsf{Dec}')$. $\mathsf{Gen}'$ generates keys for both the encryption scheme and the MAC. The encryption is defined by $\mathsf{Enc}'_{k_1k_2}(m)=\mathsf{Enc}_{k_1}(m\|MAC_{k_2}(m))$, and the decryption $\mathsf{Dec}'_{k_1k_2}$ runs $\mathsf{Dec}_{k_1}$ and then $\mathsf{Vrfy}_{k_2}$ and outputs $\bot$ if the latter does. Show that this scheme is not always CCA-secure.
+
+\textbf{Hint:} Consider the encryption $\mathsf{Enc}$ function that runs some CPA-secure encryption and then appends a random bit to the ciphertext.
+
+\end{exercise}
+
+%\begin{bonusexercise}[Appending the message length in CBC-MAC ]
+%
+%\end{bonusexercise}
+
+
+\end{document}
