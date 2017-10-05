@@ -31,7 +31,7 @@ You are strongly encouraged to work together on the exercises, including the hom
 \begin{exercise}[The birthday attack]
 \begin{enumerate}
 	\item Assume that people's birthdays (the dates without the year) are independent and uniformly distributed among the dates except Febuary 29th. What is the smallest number of people such that the probability that two of them have the same birthday is larger than 99\%?
-	\item Consider the birthday attack on a hash function $H: \{0,1\}^*\to\{0,1\}^n$, i.e. the attack by calculating $H(x)$ for $2^{n/2}$ random values of $x$ and check for collisions. This attack uses $(m+n)2^{n/2}$ bits of memory, assuming we use $m$ bit inputs. In \htmladdnormallink{this blog post}{https://what-if.xkcd.com/63/}, Randall Munroe estimates Googles total memory to be 15 exabytes.  How do you have to choose the output length of your hash function to prevent a birthday atack by Google? Assume that Google uses $m\ge n$ and provide a length $n$ along with a proof that it is sufficient.
+	\item Consider the birthday attack on a hash function $H: \{0,1\}^*\to\{0,1\}^n$, i.e. the attack by calculating $H(x)$ for $2^{n/2}$ random values of $x$ and check for collisions. This attack uses $(m+n)2^{n/2}$ bits of memory, assuming we use $m$ bit inputs. In \htmladdnormallink{this blog post}{https://what-if.xkcd.com/63/}, Randall Munroe estimates Googles total memory to be 15 exabytes.  How do you have to choose the output length of your hash function to prevent a birthday attack by Google? Assume that Google uses $m\ge n$ and provide a length $n$ along with a proof that it is sufficient.
 \end{enumerate}
 \end{exercise}
 
@@ -44,7 +44,7 @@ You are strongly encouraged to work together on the exercises, including the hom
 \end{exercise}
 
 \begin{exercise}[HMAC?]
-  Let $H: \{0,1\}^*\to \{0,1\}^n$ be a collision resistand hash function. Construct collision resistant hash functions such that the following MAC functions are insecure.
+  Let $H: \{0,1\}^*\to \{0,1\}^n$ be a collision resistant hash function. Construct collision resistant hash functions such that the following MAC functions are insecure.
   \begin{enumerate}
   	\item $\mathsf{MAC}_k(m)=H'(k\|m)$
   	\item $\mathsf{MAC}_k(m)=H'(k\oplus m_0\|m_1)$, where $m=m_0\|m_1$ and $|m_0|=|k|$.
