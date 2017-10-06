@@ -37,15 +37,15 @@ You are strongly encouraged to work together on the exercises, including the hom
 
 \begin{exercise}[Hash functions and short inputs]
 %	On some hash functions one can run a space-efficient birthday attack by using the fact that for the sequence $x_0=0^n$ and $x_{i+1}=H(x_i)$, if there exists a pair $i<j$ such that $x_i=x_j$, then there exists an index $i'<j$ such that $x_{i'}=x_{2i'}$\footnote{It is a nice exercise to prove that fact, but we don't ask for such a proof here.}.
-Section 5.4.2 in [KL] describes a variant of the birthday attack that use only a small amount of memory. For a hash function with output length $n$, it traverses the space of $n$ bit strings by computing a sequence $x, H(x), H(H(x)), H(H(H(x)))...$ in a clever way.
+Section 5.4.2 in [KL] describes a variant of the birthday attack that uses only a small amount of memory. For a hash function with output length $n$, it traverses the space of $n$ bit strings by computing a sequence $x, H(x), H(H(x)), H(H(H(x)))...$ in a clever way.
 \begin{enumerate}
-	\item Argue that there could be collision resistant hash functions where this attack never succeeds.
-	\item Prove that any collision resistant hash function $H$ is literally collision-free for inputs of length $O(\log n)$, i.e. $H(x)\neq H(x')$ for $x\neq x'$ for $|x|=O(\log n)$
+	\item Argue that there could be collision-resistant hash functions where this attack never succeeds.
+	\item Prove that any collision-resistant hash function $H$ is literally collision-free for inputs of length $O(\log n)$, i.e. $H(x)\neq H(x')$ for $x\neq x'$ for $|x|=O(\log n)$
 \end{enumerate}
 \end{exercise}
 
 \begin{exercise}[HMAC?]
-  Let $H: \{0,1\}^*\to \{0,1\}^n$ be a collision-resistant hash function. Use $H$ to construct a collision-resistant hash functions $H'$ such that the MAC function given as $\mathsf{MAC}_k(m)=H'(k\oplus m_0\|m_1)$, where $m=m_0\|m_1$ and $|m_0|=|k|$ is insecure.
+  Let $H: \{0,1\}^*\to \{0,1\}^n$ be a collision-resistant hash function. Use $H$ to construct a collision-resistant hash function $H'$ such that the MAC function given as $\mathsf{MAC}_k(m) := H'(k\oplus m_0\|m_1)$, where $m=m_0\|m_1$ and $|m_0|=|k|$ is insecure.
 %  \begin{enumerate}
 %  	%\item $\mathsf{MAC}_k(m)=H'(k\|m)$
 %  	\item .
