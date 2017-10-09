@@ -49,10 +49,25 @@ Explain why the discrete-logarithm problem in the additive group $(\mathbb{Z}_N,
 
 \begin{exercise}[Modular arithmetic.]
 Let $p$,$N$ be integers with $p|N$. Prove that for any integer $X$,
-\begin{equation}
+\begin{equation*}
 [[X \mod N]\mod p]=[X \mod p].
-\end{equation}
+\end{equation*}
 Show that, in contrast, $[[X \mod p]\mod N]$ need not equal $[X\mod N]$.
+\end{exercise}
+
+\begin{exercise}[Diffie-Hellman problem]
+Let us consider the cyclic group $\mathbb{Z}_{13}^*$.
+\begin{subex}
+Show that 2 is a generator of $\mathbb{Z}_{13}^*$.
+\end{subex}
+
+\begin{subex}
+In $\mathbb{Z}_{13}^*$, it holds that 
+\[
+\mathsf{DH}_2(6,9) = \mathsf{DH}_2(2^5, 2^8) = 2^{40} = 2^{40 \mod 12} = 2^4 = 3
+\]
+Show in the same way that $\mathsf{DH}_2(12,10)=1$.
+\end{subex}
 \end{exercise}
 
 \begin{exercise}[Computational Diffie-Hellman]
@@ -67,42 +82,54 @@ Show that the ability of efficiently factoring $N$ allows to compute $d$
   efficiently.
   
   Given 
-  \begin{equation}
+  \begin{equation*}
   N=2140310672120493293362298457402658192652108411554313695782475927669427
-  \end{equation}
+  \end{equation*}
   try to compute $\phi(N)$. If that takes too long compute $\phi(p\cdot q)$, where 
-  \begin{align}
-  p=&58240080352490526776497122885950201\\
-  q=&36749789134330529121473391864214027.
-  \end{align}
+  \begin{align*}
+  p=&58240080352490526776497122885950201 \, ,\\
+  q=&36749789134330529121473391864214027 \, .
+  \end{align*}
   Knowing that compute $d$ for given $N$ and $e=11$. Is it 
-  \begin{equation}
-  1945736974654993903056634961275143725147489931575688907101782888641091 ?
-  \end{equation}
+  \begin{equation*}
+  1945736974654993903056634961275143725147489931575688907101782888641091 \  ?
+  \end{equation*}
 \end{exercise}
-
-%\begin{exercise}[Factoring RSA Moduli]
-%Let $N=pq$ be a RSA-modulus and let
-%  $(N,e,d) \leftarrow \mathsf{GenRSA}$. In this exercise, you show
-%  that for the special case of $e=3$, computing $d$ is equivalent to
-%  factoring $N$. Show the following:
-%\begin{enumerate}
-%\item The ability of efficiently factoring $N$ allows to compute $d$
-%  efficiently. This shows one implication.
-%\item Given $\phi(N)$ and $N$, show how to compute $p$ and $q$. 
-%\textbf{Hint:} Derive a quadratic equation (over the integers) in the
-%    unknown $p$.
-%  \item Assume we know $e=3$ and $d \in \{1,2,\ldots,\phi(N)-1\}$ such
-%    that $ed \equiv 1 \mod \phi(N)$. Show how to efficiently compute
-%    $p$ and $q$. \textbf{Hint:} Obtain a small list of possibilities for
-%    $\phi(N)$ and use (b).
-%\item Given $e=3$, $d=29'531$ and $N=44'719$, factor $N$ using the
-%  method above.
-%\end{enumerate}
 
 \begin{bonusexercise}[DDH is hard $\Rightarrow$ CDH is hard $\Rightarrow$ DLog is hard]
 Prove that hardness of the CDH problem implies hardness of the discrete-logarithm problem, and that hardness of the Decisional Diffie-Hellman problem implies hardness of the CDH problem.
 \end{bonusexercise}
+
+\begin{bonusexercise}[Factoring RSA Moduli]
+Let $N=pq$ be a RSA-modulus and let
+ $(N,e,d) \leftarrow \mathsf{GenRSA}$. In this exercise, you show
+ that for the special case of $e=3$, computing $d$ is equivalent to
+ factoring $N$. Show the following:
+\begin{subex}
+The ability of efficiently factoring $N$ allows to compute $d$
+ efficiently. This shows one implication.
+\end{subex}
+
+\begin{subex}
+Given $\phi(N)$ and $N$, show how to compute $p$ and $q$. 
+\textbf{Hint:} Derive a quadratic equation (over the integers) in the
+   unknown $p$.
+\end{subex}
+ 
+\begin{subex}
+Assume we know $e=3$ and $d \in \{1,2,\ldots,\phi(N)-1\}$ such
+   that $ed \equiv 1 \mod \phi(N)$. Show how to efficiently compute
+   $p$ and $q$. \textbf{Hint:} Obtain a small list of possibilities for
+   $\phi(N)$ and use (b).
+\end{subex}
+
+\begin{subex} 
+Given $e=3$, $d=29'531$ and $N=44'719$, factor $N$ using the
+ method above.
+\end{subex}
+\end{bonusexercise}
+
+
 
 
 \end{document}
