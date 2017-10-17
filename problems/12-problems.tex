@@ -28,6 +28,17 @@ We will work on the following exercises together during the work sessions on \wo
 
 You are strongly encouraged to work together on the exercises, including the homework. You do not have to hand in solutions to these problem sets.}
 
+\begin{exercise}[Plain RSA Signatures]
+Say the public key is $\langle N,e \rangle=\langle 91,11\rangle$.
+\begin{enumerate}
+\item Compute $\phi(N)$.
+\item Calculate the private key $d$.
+\item Sign the message $m=28$.
+\item Verify that $(43,36)$ is a valid message-signature pair.
+\end{enumerate}
+
+\end{exercise}
+
 
 \begin{exercise}[Insecurity of plain RSA Signatures]
 
@@ -37,8 +48,18 @@ on an arbitrary message using two signing queries. Show how an
 attacker can forge a signature on an arbitrary message using a
 \emph{single} signing query.
 
-\textbf{Hint:} What is the signature of $m=\tilde{m}^e$ for some $\tilde{m}$?
+\textbf{Hint:} Use the no-query and the two-query attacks. 
 \end{exercise}
+
+
+\begin{exercise}
+Assume the RSA problem is hard. Show that the plain RSA signature
+scheme satisfies the following weak definition of security: an attacker is
+given the public key $\langle N, e\rangle$ and a uniform message $m \in \mathbb{Z}^*_N$. The adversary succeeds if it can output a valid signature on m without making
+any signing queries.
+\end{exercise}
+
+
 
 \begin{exercise}[One-time secure signature scheme?]
 	
