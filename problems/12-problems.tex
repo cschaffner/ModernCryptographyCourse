@@ -52,46 +52,41 @@ attacker can forge a signature on an arbitrary message using a
 \end{exercise}
 
 
-\begin{exercise}
-Assume the RSA problem is hard. Show that the plain RSA signature
-scheme satisfies the following weak definition of security: an attacker is
-given the public key $\langle N, e\rangle$ and a uniform message $m \in \mathbb{Z}^*_N$. The adversary succeeds if it can output a valid signature on m without making
-any signing queries.
+\begin{exercise}[Plain RSA Signatures, weaker definition]
+Assume the RSA problem is hard. Show that the plain RSA signature scheme satisfies the following weak definition of security: an attacker is given the public key $\langle N, e\rangle$ and a uniform message $m \in \mathbb{Z}^*_N$. The adversary succeeds if it can output a valid signature on $m$ without making any signing queries.
 \end{exercise}
 
 
 
 \begin{exercise}[One-time secure signature scheme?]
-	
-Let $f$ be a one-way permutation. Consider the following signature
-scheme for messages in the set $\{1,\cdot , n\}$:
+A signature scheme is one-time-secure if no PPT adversary making a \emph{single} query can output a valid forgery.
+
+Let $f$ be a one-way permutation (it is hard to calculate the inverse of $f$). Consider the following signature
+scheme for messages in the set $\{1,\dots , n\}$:
 \begin{itemize}
-\item To generate keys, choose uniform $x \in \{0, 1\}^n$ and set $y := f (n) (x)$
-(where $f (i) (·)$ refers to $i$-fold iteration of $f$ , and $f^{(0)} (x) = x$). The
+\item To generate keys, choose uniform $x \in \{0, 1\}^n$ and set $y := f^{(n)} (x)$
+(where $f^{(i)}(.)$ refers to $i$-fold iteration of $f$, and $f^{(0)} (x) = x$). The
 public key is $y$ and the private key is $x$.
-\item To sign message $i \in \{1,\dots , n\}$, output $f^{(n−i)} (x)$.
+\item To sign message $i \in \{1,\dots , n\}$, output $f^{(n-i)} (x)$.
 \item To verify signature $\sigma$ on message $i$ with respect to public key $y$,
 check whether $y = f^{(i)} (\sigma)$.
 \end{itemize}
 
 \begin{enumerate}
+\item Show that the verification procedure will output 1 for every legal message-signature pair.
 \item Show that the above is not a one-time-secure signature scheme.
 Given a signature on a message $i$, for what messages $j$ can an
 adversary output a forgery?
-\item Prove that no ppt adversary given a signature on $i$ can output a
+\item Prove that no PPT adversary given a signature on $i$ can output a
 forgery on any message $j > i$ except with negligible probability.
-\item Suggest how to modify the scheme so as to obtain a one-time-secure
-signature scheme.
-
-\textbf{Hint}: Include two values $y$, $y'$ in the public key.	
 \end{enumerate}
-
-	
 \end{exercise}
 
-\begin{exercise}
 
-Let $f$ be a permutation and $f^i(x)$ the $i$-fold iteration of $f$,
+\newpage
+
+\begin{bonusexercise}[Another one-time secure signature scheme]
+Let $f$ be a permutation and $f^{(i)}(x)$ the $i$-fold iteration of $f$,
 and $f^{(0)}(x) := x$. Let us consider the following signature scheme
 $\Pi = (\mathsf{Gen},\mathsf{Sign},\mathsf{Vrfy})$ for messages $m \in \{1, \ldots, p\}$ with $p = p(n)$ polynomial in $n$.
 \begin{center}\vspace{-1em}
@@ -100,10 +95,11 @@ $\Pi = (\mathsf{Gen},\mathsf{Sign},\mathsf{Vrfy})$ for messages $m \in \{1, \ldo
     Choose $\mathsf{sk}_1,\mathsf{sk}_2 \in_R \{0,1\}^n$, $\mathsf{pk}_1 := f^p(\mathsf{sk}_1)$ and $\mathsf{pk}_2 := f^p(\mathsf{sk}_2)$. \\
     & & Set $\mathsf{sk} := (\mathsf{sk}_1,\mathsf{sk}_2)$ and $\mathsf{pk} := (\mathsf{pk}_1,\mathsf{pk}_2)$.\\[5pt]
   $\mathsf{Sign}_{\mathsf{sk}}(m)$ & : &
-    Compute $\sigma_1 := f^{p-m}(\mathsf{sk_1})$ and $\sigma_2 := f^{m-1}(\mathsf{sk}_2)$. Return $\sigma := (\sigma_1,\sigma_2)$.\\[5pt]
+    Compute $\sigma_1 := f^{(p-m)}(\mathsf{sk_1})$ and $\sigma_2 := f^{(m-1)}(\mathsf{sk}_2)$.\\
+    && Return $\sigma := (\sigma_1,\sigma_2)$.\\[5pt]
   $\mathsf{Vrfy}_{\mathsf{pk}}(m,\sigma)$ & : &
     If $\mathsf{pk}_1 =
-  f^m(\sigma_1)$ and $\mathsf{pk}_2 = f^{p-m+1}(\sigma_2)$ return $1$,
+  f^{(m)}(\sigma_1)$ and $\mathsf{pk}_2 = f^{(p-m+1)}(\sigma_2)$ return $1$,
   else return $0$.
 \end{tabular}
 \end{center}
@@ -112,10 +108,7 @@ $\Pi = (\mathsf{Gen},\mathsf{Sign},\mathsf{Vrfy})$ for messages $m \in \{1, \ldo
 \item Prove that $\Pi$ is a one-time-secure signature scheme, if
   $f$ is a one-way permutation.
 \end{enumerate}
-
-
-
-\end{exercise}
+\end{bonusexercise}
 
 
 \end{document}
