@@ -5,6 +5,7 @@
 \usepackage[colorlinks=true,urlcolor=webblue,linkcolor=webgreen,filecolor=webblue,citecolor=webgreen,pdfpagemode=UseOutlines,pdfstartview=FitH,pdfpagelayout=OneColumn,bookmarks=true]{hyperref}
 \usepackage{fullpage}
 \usepackage{enumerate}
+\usepackage{hyperref}
 \usepackage{tikz}
 \usepackage[numbers]{natbib}
 
@@ -152,7 +153,7 @@
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 \begin{document}
-\section*{Solutions to the homework exercises}
+\section*{Solution sketches to the homework exercises}
 
 \subsection*{Homework 7}
 
@@ -173,6 +174,24 @@
 	\subsubsection*{Question 4}
 	Here we can use the result from Question 2 for the function $f$ that, on input $m=m_1\ m_2\|m_3...$ with $|m_i|=n$ outputs $m_3$ (if the input is long enough, otherwise it outputs $0^n$). That way a successful adversary is the following. Send $m$ to the oracle to get a tag $t$ and outputs $(m', t')$ where $m'$ and $t'$ are obtained from $m$ and $t$ by flipping the first bit.
 	
+	\subsubsection*{Question 6}
+	
+	The adversary can just flip the last bit of the challenge ciphertext and send it to the decryption oracle.
+	
+\subsection*{Homework 10}
+
+	\subsubsection*{Question 1}
+	\begin{enumerate}[a)]
+		\item This does not work, the adversary can just forward the question and the answer.
+		\item This doesn't work, for the same reason as a)
+		\item This works. The transcript is different for different choices of the randomness that is necessary for any key exchange protocol, so the transcripts of different runs are different with high probability. That way, the honest parties will detect whether they participated in the same run of the key exchange protocol.
+		\item This is insecure. They will detect a man in the middle with high probability, in general, the hash will, however, leak some information about the key.
+		\item This works. It has been, for example, employed by an earlyier version of \href{https://signal.org/}{Signal} for detecting possible man-in-the-middle attacks in voice calls.
+	\end{enumerate}
+	\subsubsection*{Question 2}
+	Encrypt the message with $G$s public key, then encrypt the ciphertext along with instructions what to do with $F$s public key and send it to $F$.
+	
+
 
 %---------------------------------------------------------------------%
 %---------------------------------------------------------------------%
