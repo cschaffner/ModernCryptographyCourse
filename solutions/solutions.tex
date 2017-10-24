@@ -153,9 +153,7 @@
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 \begin{document}
-\section*{Solution sketches to the homework exercises}
-
-\section*{Solutions to the homework exercises}
+\section*{Solutions to some homework exercises}
 
 \subsection*{Homework 7}
 
@@ -202,17 +200,17 @@ The attack works because $m_1\|m_4 \not\in \{m_1\|m_2, m_3\|m_4 \}$, and $t_1=F_
 \subsection*{Homework 8}
 
 	\subsubsection*{Question 2}
-	Well if you have a collision, i.e. strings $x$ and $x'$ such that $H'(x)=H'(x')$, than you have a collision for $H$. A correct solution for this problem should be a formal reduction i.e. it starts by assuming you have an adversary $\mathcal{A}$ that finds a collision for $H'$ and then describing what the adversary $\mathcal{A}'$ against $H$ does that uses $\mathcal{A}$ as a subroutine.
+	If you have a collision, i.e. strings $x$ and $x'$ such that $H'(x)=H'(x')$, than you have a collision for $H$. A correct solution for this problem should be a formal reduction i.e. it starts by assuming you have an adversary $\mathcal{A}$ that finds a collision for $H'$ and then describing what the adversary $\mathcal{A}'$ against $H$ does that uses $\mathcal{A}$ as a subroutine.
 	
 	\subsubsection*{Question 3}
-	The adversary can just query some message $m$ to get a tag $t$, and then output $(m', t\oplus H(m)\oplus H(m')$.
+	The adversary can query some message $m$ to get a tag $t$, and then output $(m', t\oplus H(m)\oplus H(m'))$.
 	
 	\subsubsection*{Question 4}
 	Here we can use the result from Question 2 for the function $f$ that, on input $m=m_1\ m_2\|m_3...$ with $|m_i|=n$ outputs $m_3$ (if the input is long enough, otherwise it outputs $0^n$). That way a successful adversary is the following. Send $m$ to the oracle to get a tag $t$ and outputs $(m', t')$ where $m'$ and $t'$ are obtained from $m$ and $t$ by flipping the first bit.
 	
 	\subsubsection*{Question 6}
 	
-	The adversary can just flip the last bit of the challenge ciphertext and send it to the decryption oracle.
+	The adversary can flip the last bit of the challenge ciphertext and send it to the decryption oracle.
 	
 	
 \subsection*{Homework 9}
@@ -242,14 +240,14 @@ The elements which generate the whole $\mathbb{Z}_{11}^*$ are then $2$, $6$, $7$
 
 	\subsubsection*{Question 1}
 	\begin{enumerate}[a)]
-		\item This does not work, the adversary can just forward the question and the answer.
+		\item This does not work, the adversary can forward the question and the answer.
 		\item This doesn't work, for the same reason as a)
 		\item This works. The transcript is different for different choices of the randomness that is necessary for any key exchange protocol, so the transcripts of different runs are different with high probability. That way, the honest parties will detect whether they participated in the same run of the key exchange protocol.
 		\item This is insecure. They will detect a man in the middle with high probability, in general, the hash will, however, leak some information about the key.
 		\item This works. It has been, for example, employed by an earlyier version of \href{https://signal.org/}{Signal} for detecting possible man-in-the-middle attacks in voice calls.
 	\end{enumerate}
 	\subsubsection*{Question 2}
-	Encrypt the message with $G$s public key, then encrypt the ciphertext along with instructions what to do with $F$s public key and send it to $F$.
+	Encrypt the message with $G$'s public key, then encrypt the ciphertext along with instructions what to do with $F$'s public key and send it to $F$.
 	
 
 
