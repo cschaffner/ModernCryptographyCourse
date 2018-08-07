@@ -115,10 +115,10 @@ Show that the CBC, OFB, and CTR modes of operation do not yield CCA-secure encry
 \pagebreak
 
 
-\begin{bonusexercise}[Exercise~3.14 from $\text{[KL]}$ ]
-Argue that if $F$ is a length-preserving pseudorandom function, then
-$G(s) := F_s(1)\Vert F_s(2)\Vert \cdots \Vert F_s(\ell)$ is a pseudorandom generator with expansion factor $\ell \cdot n$.
-\end{bonusexercise}
+%\begin{bonusexercise}[Exercise~3.14 from $\text{[KL]}$ ]
+%Argue that if $F$ is a length-preserving pseudorandom function, then
+%$G(s) := F_s(1)\Vert F_s(2)\Vert \cdots \Vert F_s(\ell)$ is a pseudorandom generator with expansion factor $\ell \cdot n$.
+%\end{bonusexercise}
 
 
 \begin{bonusexercise}[Exercise~3.9 from  $\text{[KL]}$ ]
@@ -136,28 +136,28 @@ If $F$ is a pseudorandom permutation and additionally $\ell_{in}(n) \geq n$, the
 \textbf{Hint:} Use the results of Appendix A.4.
 \end{bonusexercise}
 
-\begin{bonusexercise}[Exercise~3.26 from $\text{[KL]}$ ]
-  For any function $g : \{0, 1\}^n \to \{0, 1\}^n$ , define $g^{\$} (·)$ to be a probabilistic oracle that, on input $1^n$, chooses uniform $r \in \{0, 1\}^n$ and returns $\langle r, g(r)\rangle$. A keyed function $F$ is a \emph{weak pseudorandom function} if for all PPT algorithms $D$, there exists a negligible function $\mathsf{negl}$ such that:
-  \begin{equation}
-  \left\lvert  \text{Pr}[ D^{F_k^{\$}(.)}(1^n)=1 ]-\text{Pr}[ D^{f^{\$}(.)}(1^n)=1 ]  \right\rvert < \mathsf{negl}(n),
-  \end{equation}
-where $k \in \{0, 1\}^n$ and $f \in \mathsf{Func}_n$ are chosen uniformly.
-\begin{enumerate}[label=(\alph*)]
-\item Prove that if $F$ is pseudorandom then it is weakly pseudorandom.
-\item Let $F'$ be a pseudorandom function, and define
-\begin{equation}
-F_k(x):=\begin{cases}
-    F'_k(x)     & \quad \text{if } x \text{ is even}\\
-    F'_k(x+1)  & \quad \text{if } x \text{ is odd.}
-  \end{cases}
-\end{equation}
-Prove that $F$ is weakly pseudorandom, but \emph{not} pseudorandom.
-\item Is CTR-mode encryption using a weak pseudorandom function necessarily CPA-secure? Does it necessarily have indistinguishable encryptions in the presence of an eavesdropper? Prove your answers.
-
- \textbf{Hint:} Consider CTR-mode using $F$ defined above, show an attack on this encryption scheme.
-\item Prove that Construction 3.30 is CPA-secure if $F$ is a weak pseudorandom function.
-\end{enumerate}
-\end{bonusexercise}
+%\begin{bonusexercise}[Exercise~3.26 from $\text{[KL]}$ ]
+%  For any function $g : \{0, 1\}^n \to \{0, 1\}^n$ , define $g^{\$} (·)$ to be a probabilistic oracle that, on input $1^n$, chooses uniform $r \in \{0, 1\}^n$ and returns $\langle r, g(r)\rangle$. A keyed function $F$ is a \emph{weak pseudorandom function} if for all PPT algorithms $D$, there exists a negligible function $\mathsf{negl}$ such that:
+%  \begin{equation}
+%  \left\lvert  \text{Pr}[ D^{F_k^{\$}(.)}(1^n)=1 ]-\text{Pr}[ D^{f^{\$}(.)}(1^n)=1 ]  \right\rvert < \mathsf{negl}(n),
+%  \end{equation}
+%where $k \in \{0, 1\}^n$ and $f \in \mathsf{Func}_n$ are chosen uniformly.
+%\begin{enumerate}[label=(\alph*)]
+%\item Prove that if $F$ is pseudorandom then it is weakly pseudorandom.
+%\item Let $F'$ be a pseudorandom function, and define
+%\begin{equation}
+%F_k(x):=\begin{cases}
+%    F'_k(x)     & \quad \text{if } x \text{ is even}\\
+%    F'_k(x+1)  & \quad \text{if } x \text{ is odd.}
+%  \end{cases}
+%\end{equation}
+%Prove that $F$ is weakly pseudorandom, but \emph{not} pseudorandom.
+%\item Is CTR-mode encryption using a weak pseudorandom function necessarily CPA-secure? Does it necessarily have indistinguishable encryptions in the presence of an eavesdropper? Prove your answers.
+%
+% \textbf{Hint:} Consider CTR-mode using $F$ defined above, show an attack on this encryption scheme.
+%\item Prove that Construction 3.30 is CPA-secure if $F$ is a weak pseudorandom function.
+%\end{enumerate}
+%\end{bonusexercise}
 
 
 \end{document}
