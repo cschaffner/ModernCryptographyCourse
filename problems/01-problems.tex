@@ -31,7 +31,7 @@ The problems marked with $\bigstar$ are more challenging bonus problems, often r
 }
 
 \begin{exercise}[Formal definitions]
-In the Katz-Lindell [KL] book, the \emph{shift cipher} is informally described as follows: ``Algorithm \gen outputs a uniform key $k \in \{0,1,\ldots, 25\}$; algorithm \enc takes a key $k$ and a plaintext and shifts each letter of the plaintext forward $k$ positions (wrapping around at the end of the alphabet); and algorithm \dec takes a key $k$ and a ciphertext and shifs every letter of the ciphertext backward $k$ positions.''
+In the Katz-Lindell [KL] book, the \emph{shift cipher} is informally described as follows: ``Algorithm \gen outputs a uniform key $k \in \{0,1,\ldots, 25\}$; algorithm \enc takes a key $k$ and a plaintext and shifts each letter of the plaintext forward $k$ positions (wrapping around at the end of the alphabet); and algorithm \dec takes a key $k$ and a ciphertext and shifts every letter of the ciphertext backward $k$ positions.''
 
 In a more formal mathematical language, we can define the shift cipher as follows: Let us identify numbers and English letters in the natural way ($a=0, b=1, c=2$ etc.). Then, the message space $\mathcal{M}$ is any finite sequence $m=m_1 m_2 \cdots m_\ell$ where $m_i \in \{0,1,\ldots,25\}$.
 \begin{align*}
@@ -54,7 +54,7 @@ the Vigen{\`e}re cipher.
 Let us consider the scenario of \emph{chosen-plaintext attacks}. In this scenario, an attacker has the ability to obtain plaintext/ciphertext pairs (under the same unknown key) for plaintexts of its choice. For example, for the case of a shift cipher, the attacker might ask for encryptions of messages \texttt{foo} and \texttt{bar} and obtains (plaintext,ciphertext) pairs \texttt{(foo,oxx)} and \texttt{(bar,kja)}.
 
 \begin{subex}
-Show that shift, mono-alphabetic substition and Vigen{\`e}re ciphers are all trivial to break using a chosen-plaintext attack.
+Show that shift, mono-alphabetic substitution and Vigen{\`e}re ciphers are all trivial to break using a chosen-plaintext attack.
 \end{subex}
 
 \begin{subex}
