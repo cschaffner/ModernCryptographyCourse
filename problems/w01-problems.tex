@@ -2,7 +2,7 @@
 
 %% Settings
 \newcommand\problemset{ 1}
-\newcommand\deadline{Monday, 11 September 2017, 20:00h}
+\newcommand\deadline{Monday, 11 September 2018, 12:00h}
 \newif\ifcomments
 \commentsfalse % hide comments
 %\commentstrue % show comments
@@ -21,7 +21,7 @@
 \problems
 
 {\sffamily\noindent
-We will work on the following exercises together during the work session on Tuesday, 4 September 2017.
+We will work on the following exercises together during the work session on Tuesday, 4 September 2018.
 
 The problems marked with $\bigstar$ are more challenging bonus problems, often referring to extra material covered only in the [KL] book (or elsewhere), but possibly not in the videos. These bonus problems are optional and will not be part of the material you have to master for the final exam. 
 }
@@ -38,7 +38,7 @@ In a more formal mathematical language, we can define the shift cipher as follow
 
 Provide formal definitions for $\gen, \enc, \dec$ for 
 \begin{subex}
-the mono-alphabetic substition cipher,
+the mono-alphabetic substitution cipher,
 \end{subex}
 \begin{subex}
 the Vigen{\`e}re cipher.
@@ -69,7 +69,7 @@ Let $E_1$ and $E_2$ be probability events. Then, $E_1 \wedge E_2$ denotes their 
     as long as $\Pr[E_2] \neq 0$.
 
 \begin{subex}
-Let $E_1$ and $E_2$ be probability events with $Pr[E_2] \neq 0$. Using the definitions above, prove what is known as \emph{Bayes' rule}:
+Let $E_1$ and $E_2$ be probability events with $\Pr[E_2] \neq 0$. Using the definitions above, prove what is known as \emph{Bayes' rule}:
 \[ \Pr[E_1 | E_2] = \frac{ \Pr[E_1] \cdot \Pr[E_2 | E_1] }{\Pr[E_2]} \, . \]
 \end{subex}
 
@@ -93,7 +93,7 @@ Let $E_1$ and $E_2$ be probability events with $Pr[E_2] \neq 0$. Using the defin
 
 \end{exercise}
   
-\begin{exercise}[Shift cipher is not perfectly secure]
+\begin{exercise}[Shift cipher is not perfectly secret]
 Let us consider the shift cipher with the following message distribution: $\Pr[M = \mathtt{ik}]=0.1, \Pr[M = \mathtt{op}]=0.3, \Pr[M = \mathtt{de}]=0.6$. 
 \begin{subex}
 Calculate the probability $\Pr[M=\mathtt{ik} \mid C=\mathtt{ab}]$ that the message $\mathtt{ik}$ was encrypted when
@@ -104,12 +104,12 @@ Calculate the probability $\Pr[M=\mathtt{op} \mid C=\mathtt{ab}]$ that the messa
  ciphertext $\mathtt{ab}$ is observed.
 \end{subex}
 \begin{subex}
-Conclude that the shift cipher is not perfectly secure.
+Conclude that the shift cipher is not perfectly secret.
 \end{subex}
 \end{exercise}
 
 
-\begin{exercise}[Perfect security]
+\begin{exercise}[Perfect secrecy]
 Archaeologists found the following encryption table --- unfortunately it is not complete.
   \begin{center}
     \begin{tabular}{c||c|c|c|c}
@@ -133,7 +133,7 @@ Archaeologists found the following encryption table --- unfortunately it is not 
   The key was picked by tossing a coin twice.
   For every transmission a new key was used.
 
-Complete the table to form a perfectly secure encryption scheme.
+Complete the table to form a perfectly secret encryption scheme.
 \end{exercise}
 
 \begin{exercise}[Message in the clear]
