@@ -32,10 +32,10 @@
 \begin{figure}[h]
 \center
 \includegraphics[width=8cm]{PrivKexperiment.jpg}
-\caption{The $\PrivK^{\eav}_{\mathcal{A},\Pi}$ experiment \label{fig}}
+\caption{The $\PrivK^{\eav}_{\mathcal{A},\Pi}$ experiment \label{fig:privk-eav}}
 \end{figure}
 
-\begin{exercise}[The $\PrivK^{\eav}_{\mathcal{A},\Pi}$ experiment (see Figure~\ref{fig})]
+\begin{exercise}[The $\PrivK^{\eav}_{\mathcal{A},\Pi}$ experiment (see Figure~\ref{fig:privk-eav})]
 For each of the following scenarios, give the maximal value of $\Pr[\PrivK^{\eav}_{\mathcal{A},\Pi}=1]$ and explain how it can be achieved.
 
 \begin{subex}
@@ -132,13 +132,13 @@ For a given $y \in \{0,1\}^{2n}$, what is $\Pr_{s \leftarrow
 \begin{figure}[h]
 \center
 \includegraphics[width=8cm]{PRGExperiment.jpg}
-\caption{The $\mathsf{PRG}_{\mathcal{A},G}$ experiment \label{fig}}
+\caption{The $\mathsf{PRG}_{\mathcal{A},G}$ experiment \label{fig:prg-exp}}
 \end{figure}
 
 \begin{exercise}[Exercise~3.5 from  $\text{[KL]}$ ]
   Let $|G(s)| = \ell(|s|)$ for some $\ell$. Consider the following experiment:
 
-  \textbf{The PRG indistinguishability experiment} $\mathsf{PRG}_{\mathcal{A},G}(n)$, see also Figure~\ref{fig}:
+  \textbf{The PRG indistinguishability experiment} $\mathsf{PRG}_{\mathcal{A},G}(n)$, see also Figure~\ref{fig:prg-exp}:
   \textit{
   \begin{enumerate}[label=(\alph*)]
 \item  A uniform bit $b \in \{0,1\}$ is chosen. If $b = 0$ then choose a uniform $r \leftarrow \{0, 1\}^{\ell(n)}$ and set $w:=r$; if $b = 1$ then choose a uniform $s \leftarrow \{0,1\}^n$ and set $w := G(s)$.
