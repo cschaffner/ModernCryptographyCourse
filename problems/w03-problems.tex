@@ -13,7 +13,7 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true, urlcolor = blue, linkcolor = blue}
-\usepackage{enumitem}
+% \usepackage{enumitem}
 
 %% Macros
 \input{macros}
@@ -22,30 +22,6 @@
 
 \problems
 
-
-{\sffamily\noindent
-We will work on the following exercises together during the work sessions on \worksession.
-
-You are strongly encouraged to work together on the exercises, including the homework. You do not have to hand in solutions to these problem sets.}
-
-
-
-\begin{exercise}[not PRFs]
-Let us assume that $k$ and $x$ are $n$-bit strings. For all of the following constructions, explain why they are not PRFs. Give an explicit description of an efficient attacker that distinguishes the given function from a uniform function $f \in \mathsf{Func}_n$.
-
-\begin{subex}
-Let $F_k(x)$ output $k$.
-\end{subex}
-
-\begin{subex}
-Let $F_k(x)$ output $x$.
-\end{subex}
-
-\begin{subex}
-Let $F_k(x)$ output $x \oplus k$.
-\end{subex}
-
-\end{exercise}
 
 \begin{exercise}[Basic properties of PRFs]
 The set of all functions from $n$ bits to $\ell$ bits is denoted by
@@ -70,16 +46,38 @@ Let $h(n,\ell)$ denote the fraction of functions $F_k$ among all functions in $\
 \end{exercise}
 
 
+\begin{exercise}[not PRFs]
+Let us assume that $k$ and $x$ are $n$-bit strings. For all of the following constructions, explain why they are not PRFs. Give an explicit description of an efficient attacker that distinguishes the given function from a uniform function $f \in \mathsf{Func}_n$.
+
+\begin{subex}
+Let $F_k(x)$ output $k$.
+\end{subex}
+
+\begin{subex}
+Let $F_k(x)$ output $x$.
+\end{subex}
+
+\begin{subex}
+Let $F_k(x)$ output $x \oplus k$.
+\end{subex}
+
+\end{exercise}
+
+
 \begin{figure}[h]
 \center
 \includegraphics[width=8cm]{PRFExperiment.jpg}
 \caption{The $\mathsf{PRF}_{\mathcal{A},F}(n)$ experiment \label{fig}}
 \end{figure}
 
+
+
 \begin{exercise}[Exercise~3.12]
+
 Let $F$ be a keyed function and consider the following experiment:
 
-\textbf{The PRF indistinguishability experiment $\mathsf{PRF}_{\mathcal{A},F}(n)$:}, see also Figure~\ref{fig}:
+\textbf{The PRF indistinguishability experiment
+  $\mathsf{PRF}_{\mathcal{A},F}(n)$:}, see also Figure~\ref{fig}:
 \textit{
 \begin{enumerate}
 \item A uniform bit $b \in \{0, 1\}$ is chosen. If $b = 1$ then choose
@@ -93,8 +91,22 @@ and 0 otherwise.
 \end{enumerate}
 }
 
-Define pseudorandom functions using this experiment, and prove that
-your definition is equivalent to Definition 3.25.
+We can give an alternative definition of PRFs using this experiment as
+follows:
+
+\textbf{Definition: } Let $F:\{0,1\}^* \times \{0,1\}^* \rightarrow \{0,1\}^*$ be an efficient
+length-preserving keyed function. F is a \emph{pseudorandom function}
+if for all probabilistic polynomial-time attackers $\mathcal{A}$, there is a
+negligible function $\negl$ such that:
+\[ 
+\Pr[\mathsf{PRF}_{\mathcal{A},F}(n) = 1] \leq \frac12 + \negl(n) \, , 
+\]
+where the probability is taken over the randomness used by
+$\mathcal{A}$ and the rnadomness used in the experiment (for choosing
+the bit $b$ as well as $f$ and $k$).
+
+
+Prove that the definition above is equivalent to Definition 3.25.
 \end{exercise}
 
 
@@ -103,7 +115,7 @@ your definition is equivalent to Definition 3.25.
 \end{exercise}
 
 \begin{exercise}[Exercise~3.28 from $\text{[KL]}$ ]
-Show that the CBC, OFB, and CTR modes of operation do not yield CCA-secure encryption schemes (regardless of $F$). Consider encryptions and decryptions of only single block messages.
+Show that the CBC, OFB, and CTR modes of operation do not yield CCA-secure encryption schemes (regardless of $F$). Consider encryptions and decryptions of only single-block messages.
 \end{exercise}
 
 \begin{exercise}[Exercise~3.29 from $\text{[KL]}$ ]
@@ -112,7 +124,6 @@ Show that the CBC, OFB, and CTR modes of operation do not yield CCA-secure encry
   \textbf{Hint:} Generate two plaintext messages from the original plaintext so that knowledge of either one reveals nothing about the original plaintext, but knowledge of both enables the original plaintext to be computed.
 \end{exercise}
 
-\pagebreak
 
 
 %\begin{bonusexercise}[Exercise~3.14 from $\text{[KL]}$ ]
