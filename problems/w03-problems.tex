@@ -135,7 +135,7 @@ Show that the CBC, OFB, and CTR modes of operation do not yield CCA-secure encry
 \begin{bonusexercise}[Exercise~3.9 from  $\text{[KL]}$ ]
   Prove \emph{unconditionally} the existence of a pseudorandom function $F : \{0,1\}^{n^2} \times \{0,1\}^{\log(n)} \to \{0,1\}^n$.
 
-  \textbf{Hint:} Implement a uniform function with logarithmic input length.
+  \textbf{Hint:} Use the function input as index to select part of the key.
 \end{bonusexercise}
 
 \begin{bonusexercise}[Exercise~3.16 from $\text{[KL]}$ ]
