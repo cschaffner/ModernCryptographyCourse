@@ -65,7 +65,7 @@ secure MAC (even for fixed-length messages):
 
 \begin{exercise}[Authenticate-then-encrypt]
 
-Given a CPA-secure encryption scheme $(\mathsf{Gen}_1, \mathsf{Enc}, \mathsf{Dec})$ and a MAC $(\mathsf{Gen}_2, \mathsf{MAC}, \mathsf{Vrfy})$, we construct an encryption scheme $(\mathsf{Gen}', \mathsf{Enc}', \mathsf{Dec}')$. $\mathsf{Gen}'$ generates independent keys $k_1$ and $k_2$ for both the encryption scheme and the MAC. The encryption is defined by $\mathsf{Enc}'_{k_1k_2}(m)=\mathsf{Enc}_{k_1}(m\|MAC_{k_2}(m))$, and the decryption $\mathsf{Dec}'_{k_1k_2}$ runs $\mathsf{Dec}_{k_1}$ and then $\mathsf{Vrfy}_{k_2}$ and outputs $\bot$ if the latter does. Show that this scheme is not always CCA-secure.
+Given a CPA-secure encryption scheme $(\mathsf{Gen}_1, \mathsf{Enc}, \mathsf{Dec})$ and a MAC $(\mathsf{Gen}_2, \mathsf{MAC}, \mathsf{Vrfy})$, we construct an encryption scheme $(\mathsf{Gen}', \mathsf{Enc}', \mathsf{Dec}')$. $\mathsf{Gen}'$ generates independent keys $k_1$ and $k_2$ for both the encryption scheme and the MAC. The encryption is defined by $\mathsf{Enc}'_{k_1k_2}(m)=\mathsf{Enc}_{k_1}(m\|\mathsf{MAC}_{k_2}(m))$, and the decryption $\mathsf{Dec}'_{k_1k_2}$ runs $\mathsf{Dec}_{k_1}$ and then $\mathsf{Vrfy}_{k_2}$ and outputs $\bot$ if the latter does. Show that this scheme is not always CCA-secure.
 
 \textbf{Hint:} Let $(\mathsf{\widetilde{Gen}}_1, \mathsf{\widetilde{Enc}}, \mathsf{\widetilde{Dec}})$ be a CPA-secure encryption scheme. Now consider $(\mathsf{Gen}_1, \mathsf{Enc}, \mathsf{Dec})$ defined as 
 $\mathsf{Gen}_1 = \mathsf{\widetilde{Gen}}_1$ and $\mathsf{Enc}_k(x) =  \mathsf{\widetilde{Enc}}_k(x) \| d$ for a random bit $d \leftarrow \{0,1\}$, and $\mathsf{Dec}_k(c \| d) := \mathsf{\widetilde{Dec}}_k(c)$.
