@@ -64,7 +64,7 @@ As in Example 11.27 in [KL], say $\mathsf{GenRSA}$ outputs $(N,e,d)=(1005973,89,
 \begin{subex}[Attacks on Plain RSA]
 \begin{enumerate}
 \item For the RSA public key $(N,e)=(10000799791, 3)$, decrypt the ciphertext $c=1 000 000$. Can you do it without factoring $N$?
-\item Suppose we would like to use plain RSA as public-key encryption in a hybrid scheme together with AES-256 in CBC mode. We choose $N$ to have roughly 2048 bits. Use the previous subexercise to argue the insecurity of this hybrid scheme.
+\item Suppose we would like to use plain RSA with public exponent $e=3$ as public-key encryption in a hybrid scheme together with AES-256 in CBC mode. We choose $N$ to have roughly 2048 bits. Use the previous subexercise to argue the insecurity of this hybrid scheme.
 \end{enumerate}
 \end{subex}
 \end{exercise}
