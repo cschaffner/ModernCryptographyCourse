@@ -97,7 +97,22 @@ truly random bits is expensive.
 \end{subex}
 \end{exercise}
 
-
+\begin{exercise}[Mode of Encryption]
+Let $F : \{0, 1\}^n \times \{0, 1\}^n \rightarrow \{0, 1\}^n$ be a block cipher, and consider the
+following mode of encryption: to encrypt an $\ell$-block message $m_1, \ldots , m_{\ell}$ using key $k$,
+choose uniform $c_0 \in \{0, 1\}^n$ and then for $i = 1,  \ldots , \ell$ set $c_i := F_k(m_i) \oplus c_{i-1}$. Output
+the ciphertext $c_0 , \ldots c_{\ell}$.
+\begin{subex}
+How would decryption of a ciphertext $c_0,  \ldots , c_{\ell}$ be done?
+\end{subex}
+\begin{subex}
+Describe and analyze an explicit attack showing that this scheme is not EAV-
+secure.
+\end{subex}
+\begin{subex}
+Is this scheme CPA-secure? Provide a brief justification of your answer.
+\end{subex}
+\end{exercise}
 
 
 
