@@ -114,6 +114,13 @@ Is this scheme CPA-secure? Provide a brief justification of your answer.
 \end{subex}
 \end{exercise}
 
+\begin{exercise}[Padded RSA]
+	Let $\tilde \Pi=(\tilde\gen, \tilde \enc, \tilde \dec)$ be the plain RSA encryption scheme for $2 n$ bit messages, and consider the
+	padded encryption scheme $\Pi=(\gen, \enc, \dec)$ where $\gen=\tilde\gen$. To encrypt a plaintext $m\in\{0,1\}^n$, sample $r\gets\{0,1\}^n$ and output $\tilde \enc_{\mathsf{pk}}(x\|r)$. Decryption is done by decrypting with $\tilde\dec_{\mathsf{sk}}$ and outputting the first half of the resulting string.
+	\begin{subex}
+		Find a chosen ciphertext attack on $\Pi$.
+	\end{subex}
+\end{exercise}
 
 
 \end{document}
