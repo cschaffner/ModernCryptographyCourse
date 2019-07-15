@@ -1,0 +1,191 @@
+\documentclass[a4paper,10pt,landscape,twocolumn]{scrartcl}
+
+%% Settings
+\newcommand\problemset{ 1}
+\newcommand\deadline{Monday, 11 September 2018, 12:00h}
+\newif\ifcomments
+\commentsfalse % hide comments
+%\commentstrue % show comments
+
+%% Packages
+\usepackage[english]{exercises}
+\usepackage{wasysym}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor = blue, linkcolor = blue}
+
+%% Macros
+\input{macros}
+
+\begin{document}
+
+\problems
+
+{\sffamily\noindent
+We will work on the following exercises together during the work session on Tuesday, 4 September 2018.
+
+The problems marked with $\bigstar$ are more challenging bonus problems, often referring to extra material covered only in the [KL] book (or elsewhere), but possibly not in the videos. These bonus problems are optional and will not be part of the material you have to master for the final exam. 
+}
+
+\begin{exercise}[Formal definitions]
+In the Katz-Lindell [KL] book, the \emph{shift cipher} is informally described as follows: ``Algorithm \gen outputs a uniform key $k \in \{0,1,\ldots, 25\}$; algorithm \enc takes a key $k$ and a plaintext and shifts each letter of the plaintext forward $k$ positions (wrapping around at the end of the alphabet); and algorithm \dec takes a key $k$ and a ciphertext and shifts every letter of the ciphertext backward $k$ positions.''
+
+In a more formal mathematical language, we can define the shift cipher as follows: Let us identify numbers and English letters in the natural way ($a=0, b=1, c=2$ etc.). Then, the message space $\mathcal{M}$ is any finite sequence $m=m_1 m_2 \cdots m_\ell$ where $m_i \in \{0,1,\ldots,25\}$.
+\begin{align*}
+\gen&: k \leftarrow \{0,1,\ldots, 25\} \, ,\\
+\enc_k(m_1 m_2 \ldots m_\ell) &= c_1 c_2 \ldots c_\ell  \mbox{ where }c_i = [(m_i + k) \mod 26] \, ,\\
+\dec_k(c_1 c_2 \ldots c_\ell) &= m_1 m_2 \ldots m_\ell  \mbox{ where }m_i = [(c_i - k) \mod 26] \, .
+\end{align*}
+
+Provide formal definitions for $\gen, \enc, \dec$ for 
+\begin{subex}
+the mono-alphabetic substitution cipher,
+\end{subex}
+\begin{subex}
+the Vigen{\`e}re cipher.
+\end{subex}
+\end{exercise}
+
+
+\begin{exercise}[Chosen-plaintext attacks]
+Let us consider the scenario of \emph{chosen-plaintext attacks}. In this scenario, an attacker has the ability to obtain plaintext/ciphertext pairs (under the same unknown key) for plaintexts of its choice. For example, for the case of a shift cipher, the attacker might ask for encryptions of messages \texttt{foo} and \texttt{bar} and obtains (plaintext,ciphertext) pairs \texttt{(foo,oxx)} and \texttt{(bar,kja)}.
+
+\begin{subex}
+Show that shift, mono-alphabetic substitution and Vigen{\`e}re ciphers are all trivial to break using a chosen-plaintext attack.
+\end{subex}
+
+\begin{subex}
+How much chosen plaintext is required to recover the key for each of the ciphers?
+\end{subex}
+\end{exercise}
+
+
+
+\begin{exercise}[Probability theory and Bayes' rule]
+Let $E_1$ and $E_2$ be probability events. Then, $E_1 \wedge E_2$ denotes their conjunction, i.e. $E_1
+    \wedge E_2$ is the event that \emph{both} $E_1$ and $E_2$ occur. The
+    \emph{conditional probability of $E_1$ given $E_2$}, denoted
+    $\Pr[E_1 | E_2]$ is defined as
+    \[ \Pr[E_1 | E_2] := \frac{ \Pr[E_1 \wedge E_2] }{\Pr[E_2]} \]
+    as long as $\Pr[E_2] \neq 0$.
+
+\begin{subex}
+Let $E_1$ and $E_2$ be probability events with $\Pr[E_2] \neq 0$. Using the definitions above, prove what is known as \emph{Bayes' rule}:
+\[ \Pr[E_1 | E_2] = \frac{ \Pr[E_1] \cdot \Pr[E_2 | E_1] }{\Pr[E_2]} \, . \]
+\end{subex}
+
+\begin{subex} Let the probability that a news article contains the word
+    \emph{president} be 20\%. The probability that it contains the word
+    \emph{president} if it already contains the word \emph{Trump} is
+    35\%. The probability that it contains the word \emph{Trump} is 10\%.
+    Under these assumptions, what is the probability that a news article
+    contains the word \emph{Trump} if it already contains the word \emph{president}?
+\end{subex}
+
+\begin{subex} Let the probability that a certain cryptographic protocol is
+    \emph{secure} and \emph{efficient} be 10\%. The probability that it is
+    \emph{not secure} if it is \emph{efficient} is 80\%. What is the
+    probability that
+    \begin{enumerate}
+      \item the protocol is \emph{secure} if it is \emph{efficient}?
+      \item the protocol is \emph{efficient}?
+    \end{enumerate}
+\end{subex}  
+
+\end{exercise}
+  
+\begin{exercise}[Shift cipher is not perfectly secret]
+Let us consider the shift cipher with the following message distribution: $\Pr[M = \mathtt{ik}]=0.1, \Pr[M = \mathtt{op}]=0.3, \Pr[M = \mathtt{de}]=0.6$. 
+\begin{subex}
+Calculate the probability $\Pr[M=\mathtt{ik} \mid C=\mathtt{ab}]$ that the message $\mathtt{ik}$ was encrypted when
+ ciphertext $\mathtt{ab}$ is observed.
+\end{subex}
+\begin{subex}
+Calculate the probability $\Pr[M=\mathtt{op} \mid C=\mathtt{ab}]$ that the message $\mathtt{op}$ was encrypted when
+ ciphertext $\mathtt{ab}$ is observed.
+\end{subex}
+\begin{subex}
+Conclude that the shift cipher is not perfectly secret.
+\end{subex}
+\end{exercise}
+
+
+\begin{exercise}[Perfect secrecy]
+Archaeologists found the following encryption table --- unfortunately it is not complete.
+  \begin{center}
+    \begin{tabular}{c||c|c|c|c}
+      & $>$ & $\vee$ & $<$ & $\wedge$ \\
+      \hline
+      \hline
+      $\bullet$ &  &  & $<$ & $\wedge$ \\
+      \hline
+      $\leftrightarrows$ & $<$ &  & $>$ &  \\
+      \hline
+      $\circlearrowleft$ & $\wedge$ & $>$ &  & \\
+      \hline
+      $\circlearrowright$ &  &  &  &  \\
+    \end{tabular}
+  \end{center}
+  On another papyrus it is explained that this encryption was used during war.
+  The movements ``left'', ``right'', ``attack'' and ``withdrawal'' were represented by $\mathcal{M} = \{<,>,\wedge,\vee\}$.
+  The keyspace was $\mathcal{K} = \{\bullet,\leftrightarrows,\circlearrowleft, \circlearrowright\}$.
+  Ciphertext and plaintext used the same alphabet, i.e.~$\mathcal{C} = \mathcal{M}$.
+
+  The key was picked by tossing a coin twice.
+  For every transmission a new key was used.
+
+Complete the table to form a perfectly secret encryption scheme.
+\end{exercise}
+
+\begin{exercise}[Message in the clear]
+When using the one-time pad with the key $k=0^\ell$, we have that $\enc_k(m)=k \oplus m = m$ and the message is sent in the clear! It has therefore been suggested to modify the one-time pad by only encrypting with $k \neq 0^\ell$ (i.e., to have \gen choose $k$ uniformly from the set of \emph{nonzero} keys of length $\ell$). Is this modified scheme still perfectly secret? Explain.
+\end{exercise}
+
+\begin{exercise}[$\bigstar$ Birthday paradox]
+This exercise deals with some basic probability as described in Appendix A.3 of the book [KL]. Compute the probability that there exists two students in the room that have the same birthday (ignoring the birth year).
+\end{exercise}
+
+\begin{exercise}[$\bigstar$ Asymptotic growth rate]
+Let $\eps$ and $c$ be arbitrary constants such that $0<\eps<1<c$. Order the following terms in increasing order of their
+  asymptotic growth rates.
+\[ n^n \quad \exp(\sqrt{n}) \quad 1 \quad \log\log n \quad
+c^{c^n} \quad n^c \quad n^\eps \quad n^{\log n} \quad \log n \quad c^n
+\]
+{\small Hint: In some cases, it might help to express two terms you
+  want to compare in the form $e^{\ldots}$ and then compare their
+  exponents.}
+
+{\small Another hint: One can prove that for any positive polynomial
+  $p(n)$, any constant $\eps>0$ and large enough $n$, it holds that
+  $p(\log(n)) < n^\eps$. You may simply use this fact, or you can try
+  to prove it.}
+\end{exercise}
+
+\begin{exercise}[$\bigstar$ Logical Contrapositives]
+In logic, \href{https://en.wikipedia.org/wiki/Contraposition}{contraposition} is an inference that says that a conditional statement $A \Rightarrow B$ is logically equivalent to its contrapositive $\neg B \Rightarrow \neg A$. For instance, the proposition ``If the weather is good, then I'm biking to work.'' can be restated as ``If I'm not biking to work, then the weather is bad.''
+
+State the contrapositive of the following statements:
+\begin{subex}
+If it rains, the trees get wet.
+\end{subex}
+\begin{subex}
+If the car drives, its fuel tank is not empty.
+\end{subex}
+\begin{subex}
+If p is a prime, then p = 2 or p is odd.
+\end{subex}
+\begin{subex}
+If assumption X holds, protocol Y is secure.
+\end{subex}
+\begin{subex}
+The RSA protocol is insecure, if you can factorize efficiently.
+\end{subex}
+\begin{subex}
+I have read the book, if I have read every sentence of it.
+\end{subex}
+\begin{subex}
+If for every theorem in this book a proof is given, then it is a
+good math book.
+\end{subex}
+\end{exercise}
+
+\end{document}
