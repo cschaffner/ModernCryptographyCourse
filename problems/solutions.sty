@@ -27,12 +27,48 @@
 \def\answerstyle{\upshape}
 
 %% Question
+\newcounter{questionnr}
+
 \newenvironment{question}[1]
 {	\newpage
-	\subsection*{Question~#1}
-	\addcontentsline{toc}{subsection}{Question~#1}
+  \stepcounter{questionnr}
+	\subsection*{Question~\arabic{questionnr} [#1 pt]}
+	\addcontentsline{toc}{subsection}{Question~\arabic{questionnr}}
 	\answerstyle
-}{}
+}{\par}
+
+\newenvironment{nquestion}[2]
+{	\newpage
+  \stepcounter{questionnr}
+	\subsection*{Question~\arabic{questionnr} [#1 pt]: #2}
+	\addcontentsline{toc}{subsection}{Question~\arabic{questionnr}}
+	\answerstyle
+}{\par}
+
+\newenvironment{programming}[1]
+{	\newpage
+  \stepcounter{questionnr}
+	\subsection*{Programming Question~\arabic{questionnr} [#1 pt]}
+	\addcontentsline{toc}{subsection}{Programming Question~\arabic{questionnr}}
+	\answerstyle
+}{\par}
+
+
+
+\newenvironment{solution}
+{ \bigskip
+  \noindent\ignorespaces
+  \emph{Solution:}}
+    {
+    \qed
+    }
+
+\newenvironment{groupproject}[1]
+{	\newpage
+	\subsection*{Group Project [#1 pt]}
+	\addcontentsline{toc}{subsection}{Group Project}
+	\answerstyle
+}{\par}
 
 
 % Styling
@@ -42,17 +78,17 @@
 
 \newcommand\frontpage[3]{
 	\renewcommand{\headheight}{15pt}
-	\renewcommand{\headrulewidth}{0pt}
-	\lhead{}
+	\renewcommand{\headsep}{15pt}
+	% \renewcommand{\headrulewidth}{0pt}
+	\lhead{\sffamily \color{gray}  Homework set\ #3}
 	\rhead{\sffamily \color{gray} \textsc{#1 -- #2}}
 	\thispagestyle{empty}
 	{\sffamily\flushleft\color{gray}
 	%COURSE DETAILS
 		\textsc{\bfseries Modern Cryptography}\\
-		University of Amsterdam, 2019\\
-		%team based:
+		University of Amsterdam, 2019\\[2mm]
 		\textsc{Team Name:} #1\\
-		\textsc{Student Names:} #2%
+		\textsc{Student Names:} #2\\[2mm]%
 		{\sffamily\flushleft\huge\bfseries
 		Homework set\ #3
 		}\\[1em]%
@@ -70,6 +106,7 @@
 \newcommand{\vrfy}{\ensuremath{\mathsf{Vrfy}}}
 \newcommand{\negl}{\ensuremath{\mathsf{negl}}}
 \newcommand{\PrivK}{\ensuremath{\mathsf{PrivK}}}
+\newcommand{\PubK}{\ensuremath{\mathsf{PubK}}}
 \newcommand{\eav}{\ensuremath{\mathsf{eav}}}
 
 \newcommand{\unif}{\overset{\$}{\gets}}
@@ -85,6 +122,9 @@
 
 \newcommand\floor[1]{\lfloor#1\rfloor}
 \newcommand\ceil[1]{\lceil#1\rceil}
+
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\eps}{\varepsilon}
 
 
 

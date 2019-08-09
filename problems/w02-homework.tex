@@ -1,0 +1,158 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{solutions}
+\usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr,
+  color, comment, graphicx, environ}
+
+\begin{document}
+\frontpage{Your team name}{Your names}{2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{groupproject}{8}
+Read up on what a
+\href{https://en.wikipedia.org/wiki/Fermi_problem}{Fermi estimate}
+is.
+\begin{enumerate}
+\item Give a Fermi estimate for all passwords used in the world.
+\item Assume all passwords used in the world are distinct. How long do
+  most of them have to be?
+\end{enumerate}
+
+Post your results to \href{https://canvas.uva.nl/courses/10514/discussion_topics/76834?module_item_id=282355}{this discussion forum}. Remember that when doing Fermi estimates, it is important to state clearly what assumptions you make when giving your answer.
+\end{groupproject}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{nquestion}{1}{2 messages with the same key}
+Two ASCII messages containing English letters and spaces only are encrypted using the one-time pad and the same key. The 8th byte of the first ciphertext is observed to be $\mathtt{0xAA}$ and the 8th byte of the second ciphertext is observed to be $\mathtt{0xE8}$. Let $m_1$ (resp., $m_2$) denote the 8th ASCII character in the first (resp., second) message. What is the most you can conclude about $m_1$ and $m_2$?
+\begin{enumerate}
+\item Nothing can be determined about $m_1$ or $m_2$ since the one-time pad is perfectly secret.
+\item $m_1$ is the character \texttt{A} and $m_2$ is the character \texttt{D}.
+\item One of $m_1$ or $_2$ is the space character, and the other is the character \texttt{b}.
+\item $m_1$ is the character \texttt{b} and $m_2$ is the space character.
+\item $m_1$ is the space character and $m_2$ is the character \texttt{b}.
+\end{enumerate}
+\end{nquestion}
+
+\begin{solution}
+  Your solution here. Answers have to be fully justified in order to get the full amount of points.
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{nquestion}{2}{3 messages with the same key}
+Three ASCII messages containing English letters and spaces only are encrypted using the one-time pad and the same key. The 10th byte of the first ciphertext is observed to be \texttt{0x66}, the 10th byte of the second ciphertext is observed to be \texttt{0x32}, and the 10th byte of the third ciphertext is observed to be \texttt{0x23}. Let $m_1$ (resp., $m_2$, $m_3$) denote the 10th ASCII character in the first (resp., second, third) message. Explain how to determine $m_1, m_2$ and $m_3$. (1/3 points for the values they obtain, 1 for the correct derivation).
+\end{nquestion}
+\begin{solution}
+  Your solution here
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{question}{1}
+Which of the following is a negligible function?
+
+\begin{enumerate}
+\item $f(n) = \frac{1}{2^n}$
+\item $f(n) = \frac{n}{2^n}$
+\item $f(n) = \frac{1}{n}$
+\item $f(n) = \frac{1}{2}$
+\end{enumerate}
+\end{question}
+
+\begin{solution}
+justify your answers
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{nquestion}{3}{Non-equal-length messages, Exercise 3.3 from [KL]}
+Say $\Pi=(\gen, \enc, \dec)$ is such that for $k \in \set{0,1}^n$, algorithm $\enc_k$ is only defined for messages of length at most $\ell(n)$ (for some polynomial $\ell$). Assuming $\enc_k$ is EAV-secure, construct a scheme $\Pi'$ satisfying Definition 3.8 even when the adversary is \emph{not} restricted to outputting equal-length messages in $\PrivK^{\eav}_{\A, \Pi}$.
+\end{nquestion}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{nquestion}{2}{Success probability in a reduction}
+Assume that algorithm $A$ efficiently solves problem $P_1$ and there is an efficient reduction from problem $P_2$ to problem $P_1$. Prove that there exists an algorithm $B$ for which
+\[
+\Pr[A \text{ succeeds in solving $P_1$}] \leq \Pr[B \text{ succeeds in solving $P_2$}] \, .
+\]
+\end{nquestion}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{nquestion}{1}{Pseudo One-Time Pad using a PRG}
+Let $G$ be a function mapping $n$-bit inputs to $2n$-bit outputs. Which of the following is true of the pseudo one-time pad encryption scheme based on $G$? (Check all that apply.)
+\begin{enumerate}
+\item The scheme can be used to securely encrypt multiple messages using the same key.
+\item The scheme is perfectly secret.
+\item The key space of the scheme is at least as large as the message space.
+\item The scheme is computationally secret if $G$ is a pseudorandom generator.
+\end{enumerate}
+\end{nquestion}
+
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{question}{3} \label{hardquestion}
+% \newcounter{hardquestion}
+% \setcounter{hardquestion}{\value{questionnr}}
+Let $n$ be even and let $G$ be a pseudorandom generator with expansion factor $\ell(n)=4n$. In this exercise, we want to show that $G'(s) := G(s_1, \ldots, s_{\ceil{n/2}})$, where $s=s_1 \cdots s_n$, is a PRG.
+
+Let $D$ be an efficient distinguisher for $G'$ with distinguishing advantage
+\[
+\eps'(n) := | \Pr_{s \leftarrow \set{0,1}^n}[D(G'(s))=1] - \Pr_{r \leftarrow \set{0,1}^{2n}}[D(r)=1]|
+\]
+Let us define the distinguishing advantage of $D$ for $G$ as
+\[
+\eps(n) := |\Pr_{s \leftarrow \set{0,1}^n}[D(G(s))=1]- \Pr_{r \leftarrow \set{0,1}^{4n}}[D(r)=1]| \, .
+\]
+Now, argue (1pt) that $\eps'(n)=\eps(n/2)$. Then use this derivation to conclude that $G'$ is a PRG (2pts).
+\end{question}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{question}{2}
+Let $n$ be even and let $G$  be a pseudorandom generator with expansion factor $\ell(n)=4n$.  Define $G'(s):=G(0^{|s|} \| s)$. Prove that $G'$ is not a PRG.
+
+\noindent \textbf{Hint:} use the Question~\the\numexpr\value{questionnr}-1\relax\ above.
+\end{question}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{question}{2}
+Let $n$ be even and let $G$ be a pseudorandom generator with expansion factor $\ell(n)=4n$.
+Define $G'(s):=G(s) \| G(s \oplus 0^{n-1}1)$. Show that $G'$ is not a PRG.
+
+\noindent\textbf{Hint:} use the Question~\the\numexpr\value{questionnr}-2\relax\ above.
+\end{question}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{question}{4}
+Let $G:\set{0,1}^n \rightarrow \set{0,1}^{2n}$ be a PRG. Describe a computationally unbounded adversary $\A$ that distinguishes the output of $G$ from a uniform $2n$-bit string with probability exponentially close to 1. How does it work? Compute its exact distinguishing advantage.
+
+\noindent\textbf{Hint:} Use practice problem 4.
+
+What is $\Pr[PRG_{\A,G}(n) =1]$ for this adversary (where $PRG_{\A,G}$ is the experiment defined in Figure 2 of problem set 2)?
+\end{question}
+\begin{solution}
+\end{solution}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{programming}{8}
+Solve \href{https://www.coursera.org/learn/cryptography/supplement/3Iajv/programming-assignment-2}{programming assignment 2}. Describe the solution and how you proceeded. You may use any programming language you like to solve the problem.
+In \href{https://github.com/cschaffner/ModernCryptographyCourse/tree/master/programming/MultiTimePad}{this github repo}, you can find some possibly helpful python code. Use your program to solve \href{https://github.com/cschaffner/ModernCryptographyCourse/blob/master/programming/MultiTimePad/ciphertexts.txt}{this same type of problem} as well.
+\end{programming}
+
+\begin{solution}
+\end{solution}
+
+
+\end{document}

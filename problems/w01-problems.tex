@@ -21,9 +21,9 @@
 \problems
 
 {\sffamily\noindent
-We will work on the following exercises together during the work session on Tuesday, 4 September 2018.
+We will work on the following exercises together during the work session on Wednesday, 4 September 2019.
 
-The problems marked with $\bigstar$ are more challenging bonus problems, often referring to extra material covered only in the [KL] book (or elsewhere), but possibly not in the videos. These bonus problems are optional and will not be part of the material you have to master for the final exam. 
+The problems marked with $\bigstar$ are more challenging bonus problems, often referring to extra material covered only in the [KL] book (or elsewhere), but possibly not in the videos. These bonus problems are optional and will not be part of the material you have to master for the final exam. All students should be able to solve all non-starred problems.
 }
 
 \begin{exercise}[Formal definitions]
@@ -36,7 +36,7 @@ In a more formal mathematical language, we can define the shift cipher as follow
 \dec_k(c_1 c_2 \ldots c_\ell) &= m_1 m_2 \ldots m_\ell  \mbox{ where }m_i = [(c_i - k) \mod 26] \, .
 \end{align*}
 
-Provide formal definitions for $\gen, \enc, \dec$ for 
+Provide formal definitions for $\gen, \enc, \dec$ for
 \begin{subex}
 the mono-alphabetic substitution cipher,
 \end{subex}
@@ -89,12 +89,12 @@ Let $E_1$ and $E_2$ be probability events with $\Pr[E_2] \neq 0$. Using the defi
       \item the protocol is \emph{secure} if it is \emph{efficient}?
       \item the protocol is \emph{efficient}?
     \end{enumerate}
-\end{subex}  
+\end{subex}
 
 \end{exercise}
-  
+
 \begin{exercise}[Shift cipher is not perfectly secret]
-Let us consider the shift cipher with the following message distribution: $\Pr[M = \mathtt{ik}]=0.1, \Pr[M = \mathtt{op}]=0.3, \Pr[M = \mathtt{de}]=0.6$. 
+Let us consider the shift cipher with the following message distribution: $\Pr[M = \mathtt{ik}]=0.1, \Pr[M = \mathtt{op}]=0.3, \Pr[M = \mathtt{de}]=0.6$.
 \begin{subex}
 Calculate the probability $\Pr[M=\mathtt{ik} \mid C=\mathtt{ab}]$ that the message $\mathtt{ik}$ was encrypted when
  ciphertext $\mathtt{ab}$ is observed.
