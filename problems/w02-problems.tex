@@ -39,23 +39,23 @@
 For each of the following scenarios, give the maximal value of $\Pr[\PrivK^{\eav}_{\mathcal{A},\Pi}=1]$ and explain how it can be achieved.
 
 \begin{subex}
-Let $\Pi$ be the shift cipher, and let us consider an adversary $\mathcal{A}$ that submits $m_0 = \mathtt{a}$ and $m_1 = \mathtt{a}$. 
+Let $\Pi$ be the shift cipher, and let us consider an adversary $\mathcal{A}$ that submits $m_0 = \mathtt{a}$ and $m_1 = \mathtt{a}$.
 \end{subex}
 
 \begin{subex}
-Let $\Pi$ be the shift cipher, and let us consider an adversary $\mathcal{A}$ that submits $m_0 = \mathtt{a}$ and $m_1 = \mathtt{b}$. 
+Let $\Pi$ be the shift cipher, and let us consider an adversary $\mathcal{A}$ that submits $m_0 = \mathtt{a}$ and $m_1 = \mathtt{b}$.
 \end{subex}
 
 \begin{subex}
-Let $\Pi$ be the shift cipher, and let us consider an adversary $\mathcal{A}$ that submits $m_0 = \mathtt{aa}$ and $m_1 = \mathtt{bb}$. 
+Let $\Pi$ be the shift cipher, and let us consider an adversary $\mathcal{A}$ that submits $m_0 = \mathtt{aa}$ and $m_1 = \mathtt{bb}$.
 \end{subex}
 
 \begin{subex}
-Let $\Pi$ be the shift cipher, and let us consider an adversary $\mathcal{A}$ that submits $m_0 = \mathtt{aa}$ and $m_1 = \mathtt{ab}$. 
+Let $\Pi$ be the shift cipher, and let us consider an adversary $\mathcal{A}$ that submits $m_0 = \mathtt{aa}$ and $m_1 = \mathtt{ab}$.
 \end{subex}
 
 \begin{subex}
-Let $\Pi$ be the one-time-pad encryption of three-letter messages, and let us consider an adversary $\mathcal{A}$ that submits $m_0 = \mathtt{aaa}$ and $m_1 = \mathtt{abc}$. 
+Let $\Pi$ be the one-time-pad encryption of three-letter messages, and let us consider an adversary $\mathcal{A}$ that submits $m_0 = \mathtt{aaa}$ and $m_1 = \mathtt{abc}$.
 \end{subex}
 
 \begin{subex}
@@ -108,11 +108,11 @@ Let $G(s)$ output $s \| \bigoplus_{i=1}^n s_i$.
 \end{exercise}
 
 \begin{exercise}[Basic properties of PRGs]
-Recall that the \href{https://en.wikipedia.org/wiki/Image_(mathematics)}{\emph{image} of a function} $f:A \rightarrow B$ is the subset $f(A)$ of $B$. Formally, 
+Recall that the \href{https://en.wikipedia.org/wiki/Image_(mathematics)}{\emph{image} of a function} $f:A \rightarrow B$ is the subset $f(A)$ of $B$. Formally,
 \[ \mathsf{im}(f) := f(A) = \{b \in B \mid \exists a \in A \mbox{ such that } b=f(a) \} \, .
 \]
 
-Let $G:\{0,1\}^n \rightarrow \{0,1\}^{2n}$ be a PRG. 
+Let $G:\{0,1\}^n \rightarrow \{0,1\}^{2n}$ be a PRG.
 
 \begin{subex}
 Let us assume that $G$ is \href{https://en.wikipedia.org/wiki/Injective_function}{injective}. How many different $2n$-bit strings $y$ are there in the image of $G$?
@@ -148,7 +148,7 @@ For a given $y \in \{0,1\}^{2n}$, what is $\Pr_{s \leftarrow
   \end{enumerate}
   }
 Provide a definition of a pseudorandom generator based on this experiment, and prove that your definition is equivalent to Definition 3.14. (That is, show that $G$ satisfies your definition if and only if it satisfies Definition 3.14.)
-  
+
 \end{exercise}
 
 
@@ -163,7 +163,7 @@ Prove that Definition~3.8 cannot be
 \end{exercise}
 
 % \begin{exercise}[Exercise~3.3 from  $\text{[KL]}$ ]
-% Say $\Pi=\left( \gen,\enc,\dec \right)$ is such that for $k\in \{0,1\}^n$, algorithm $\enc_k$ is only defined for messages of length at most $\ell(n)$ (for some polynomial $\ell$). Construct a scheme satisfying Definition~3.8 even when the adversary is \emph{not} restricted to outputting equal-length messages in $\PrivK^{\eav}_{\mathcal{A},\Pi}$. 
+% Say $\Pi=\left( \gen,\enc,\dec \right)$ is such that for $k\in \{0,1\}^n$, algorithm $\enc_k$ is only defined for messages of length at most $\ell(n)$ (for some polynomial $\ell$). Construct a scheme satisfying Definition~3.8 even when the adversary is \emph{not} restricted to outputting equal-length messages in $\PrivK^{\eav}_{\mathcal{A},\Pi}$.
 % \end{exercise}
 
 \begin{bonusexercise}[Exercise~3.4 from  $\text{[KL]}$ ]
