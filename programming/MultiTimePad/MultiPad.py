@@ -24,7 +24,7 @@ useful python commands:
     returns the hexadecimal representation (at least two characters) of an integer
     Example: '{0:02x}'.format(123)  ==  '7b'
 
-    '{0:08b}'.format(integer
+    '{0:08b}'.format(integer)
     returns the binary representation (at least 8 characters) of an integer
     Example: '{0:08b}'.format(23) == '00010111'
 
