@@ -219,4 +219,34 @@ TSWLatexianTemp*
 # expex forward references with \gathertags
 *-tags.tex
 
+
+## OSX
+# General
 .DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+## Windows
+# Windows thumbnail cache files
+Thumbs.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+## Linux
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
