@@ -1,9 +1,10 @@
-from PrivateKey import PrivateKeyEncryption
-from SecurityGames import Adversary, test_adversary
+from PrivateKeyEncryption import PrivateKeyEncryption
 import random
+from bitstring import BitArray
+
 
 class OTP(PrivateKeyEncryption):
-    def Enc(self, k, m):
+    def Enc(self, k: BitArray, m: BitArray):
         # example OTP: c = bitwise XOR of message and key
         assert len(k) == len(m), "In case of the one-time pad, message and key have to be of the same length"
         return k ^ m

@@ -1,32 +1,38 @@
-from PrivateKeyEncryption import PrivateKeyEncryption
-from PseudoRandomGenerator import Adversary, test_adversary
-import random
+from PseudoRandomGenerator import PseudoRandomGenerator, Distinguisher, compute_probability_difference
+from bitstring import BitArray
 
-class OTP(PrivateKeyEncryption):
-    def Enc(self, k, m):
-        # example OTP: c = bitwise XOR of message and key
-        assert len(k) == len(m), "In case of the one-time pad, message and key have to be of the same length"
-        return k ^ m
+class PRG(PseudoRandomGenerator):
+    '''
+    G(s) = s || s
+    outputs the seed concatenated with itself
+    this is not a PRG, why not?
+    '''
+    def l_out(self, n:int) -> int:
+        return 2*n
 
-    def Dec(self, k, c):
-        # example OTP: c = bitwise XOR of message and key
-        assert len(k) == len(c), "In case of the one-time pad, ciphertext and key have to be of the same length"
-        return k ^ c
+    def evaluate(self, s: BitArray) -> bytes:
+        return s + s
 
-class OTP_adversary(Adversary):
-    def challenge_plaintexts(self, n: int):
-        m_0 = '\x00'
-        m_1 = '\x11'
-        return m_0, m_1
+class PRG_Dist(Distinguisher):
+    '''
+    distinguisher against G(s) = s || s
+    '''
+    def distinguish(self, x: bytes) -> bool:
+        '''
+        takes input x and tries to distinguish if it's sampled from pure randomness or output by a PRG
+        :param x:
+        :return: the distinguisher's guess
+        '''
 
-    def guess_bit(self, c):
-        # ignore the ciphertext and return a random bit
-        b_guess = random.randrange(0, 1)
-        return b_guess
+        # TODO: do something more clever here!
+        return True
+
+not_a_PRG_1 = PRG()
+not_a_PRG_Dist = PRG_Dist()
+
+n = 10
+probability_difference = compute_probability_difference(not_a_PRG_Dist, not_a_PRG_1, n)
+print("")
+assert probability_difference >= 1 - (2 ** n)
 
 
-otp = OTP()
-m = b"The president"
-key = otp.KeyGen(len(m))
-c = otp.Enc(key, b"The president")
-print(otp.Dec(key, c))
