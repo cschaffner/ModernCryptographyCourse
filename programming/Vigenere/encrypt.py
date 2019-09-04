@@ -2,7 +2,7 @@
 # author: Christian Schaffner
 from random import randint
 
-KEY_LENGTH = 10   # could be anything from 1 to 13
+KEY_LENGTH = 4   # could be anything from 1 to 13
 KEY = ['{0:02x}'.format(randint(0,255)) for x in range(KEY_LENGTH)]
 
 """
