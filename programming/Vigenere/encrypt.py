@@ -2,7 +2,7 @@
 # author: Christian Schaffner
 from random import randint
 
-KEY_LENGTH = 80
+KEY_LENGTH = 4   # could be anything from 1 to 13
 KEY = ['{0:02x}'.format(randint(0,255)) for x in range(KEY_LENGTH)]
 
 """
@@ -43,7 +43,9 @@ def main():
                 for char in line.rstrip('\n'):  # ignore the \n character at the end of the line if it's there
                     ciphertext += '{0:02x}'.format((int(ord(char)) ^ int(KEY[pos], 16)))
                     pos += 1
-                fout.write('{}\n'.format(ciphertext))
+                    if pos == KEY_LENGTH:
+                        pos = 0
+                fout.write('{}\n'.format(ciphertext.swapcase()))
 
     print(KEY)
     return True
