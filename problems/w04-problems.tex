@@ -49,7 +49,16 @@ secure MAC (even for fixed-length messages):
 \begin{exercise}[The birthday attack]
 \begin{enumerate}
 	\item Assume that people's birthdays (the dates without the year) are independent and uniformly distributed among the dates except February 29th. What is the smallest number of people such that the probability that two of them have the same birthday is larger than 99\%?
-	\item Consider the birthday attack on a hash function $H: \{0,1\}^*\to\{0,1\}^n$, i.e.\ the attack by calculating $H(x)$ for $2^{n/2}$ random values of $x$ and checking for collisions. This attack uses $(m+n)2^{n/2}$ bits of memory, assuming we use $m$-bit inputs. In \htmladdnormallink{this blog post}{https://what-if.xkcd.com/63/}, Randall Munroe estimates Google's total memory to be 15 exabytes.  How do you have to choose the output length of your hash function to prevent a birthday attack by Google? Assume that Google uses $m\ge n$ and provide a length $n$ along with a proof that it is sufficient to prevent an attack.
+	\item Consider the birthday attack on a hash function $H:
+          \{0,1\}^*\to\{0,1\}^n$, i.e.\ the attack by calculating
+          $H(x)$ for $2^{n/2}$ random values of $x$ and checking for
+          collisions. This attack uses $2n \cdot 2^{n/2}$ bits of
+          memory, assuming we use $n$-bit inputs and outputs. In
+          \htmladdnormallink{this blog
+            post}{https://what-if.xkcd.com/63/}, Randall Munroe
+          estimates Google's total memory to be 15 exabytes.  How do
+          you have to choose the output length of your hash function
+          to prevent a birthday attack (using this naive algorithm) by Google? Provide a length $n$ along with a proof that it is sufficient to prevent an attack.
 \end{enumerate}
 \end{exercise}
 
