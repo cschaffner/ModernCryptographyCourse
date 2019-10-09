@@ -77,7 +77,13 @@ As in Example 11.27 in [KL], say $\mathsf{GenRSA}$ outputs $(N,e,d)=(1005973,89,
 Claim 11.7 in [KL] states that if $\Pi=(\mathsf{Gen},\mathsf{Enc}, \mathsf{Dec})$ is a CPA-secure public-key encryption scheme for fixed-length messages, then the new encryption scheme $\Pi'=(\mathsf{Gen},\mathsf{Enc}', \mathsf{Dec}')$ with  $\mathsf{Enc}'_{pk}(m_1\|m_2\|...\|m_\ell)=\mathsf{Enc}_{pk}(m_1)\|\mathsf{Enc}_{pk}(m_2)\|...\|\mathsf{Enc}_{pk}(m_\ell)$ is CPA secure for arbitrary-length messages.
 
 	Show that Claim 11.7 does not hold in the setting of CCA-security: Exhibit a concrete attack on a scheme $\Pi'=(\mathsf{Gen},\mathsf{Enc}', \mathsf{Dec}')$ constructed from a fixed-length CCA secure encryption scheme $\Pi=(\mathsf{Gen},\mathsf{Enc}, \mathsf{Dec})$ by defining 
-\[ \mathsf{Enc}'_{pk}(m_1\|m_2\|...\|m_\ell)=\mathsf{Enc}_{pk}(m_1)\|\mathsf{Enc}_{pk}(m_2)\|...\|\mathsf{Enc}_{pk}(m_\ell) \]
+\[
+  \mathsf{Enc}'_{pk}(m_1\|m_2\|...\|m_\ell)=\mathsf{Enc}_{pk}(m_1)\|\mathsf{Enc}_{pk}(m_2)\|...\|\mathsf{Enc}_{pk}(m_\ell) \]
+
+Make sure you specify the whole CCA attacker $\mathcal{A}$ explicitly: what are the
+challenge messages, what are the encryption/decryption oracle queries,
+how is the guess bit $b'$ computed? Then compute
+$\Pr[\mathsf{PubK}^{\mathsf{cca}}_{\mathcal{A}, \Pi'}(n)=1]$!
 \end{exercise}
 
 
