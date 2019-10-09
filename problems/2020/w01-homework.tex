@@ -1,0 +1,127 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{solutions}
+\usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr,
+  color, comment, graphicx, environ}
+
+\begin{document}
+\frontpage{Your team name}{Your names}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{groupproject}{10}
+Invent your own encryption scheme and post it to \href{https://canvas.uva.nl/courses/10514/discussion_topics/76835?module_item_id=282332}{this discussion forum on Canvas}.
+Note: Only the version submitted to the Canvas discussion forum will be graded, you don’t have to include it again here. Please make sure that only one person in the team submits.
+
+Clearly specify the following things:
+\begin{itemize}
+\item your team name, and the name of your encryption scheme
+\item key space, message space, ciphertext space
+\item Key generation: how to generate keys. You can assume access to a source of truly random bits.
+\item Encryption: How to encrypt a message given the key.
+\item Decryption: How to decrypt a ciphertext given the key.
+\item Correctness: For properly generated keys, the decryption of the encryption of any message gives back this message.
+\item Security: Argue why it is difficult to decrypt ciphertexts without knowing the key.
+\item List any advantages and disadvantages of your scheme that you can think of.
+\end{itemize}
+\end{groupproject}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{question}{4}
+Order the following 5 terms according to their asymptotic growth
+rates.
+\begin{align*}
+\exp(n), \log(n), n^{\log(n)}, \log(\exp(n)), \exp(\sqrt{n})
+\end{align*}
+\end{question}
+
+\begin{solution}
+  Your solution here. Answers have to be fully justified in order to get the full amount of points.
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{question}{2}
+  Use Vigenère encryption to encrypt the message $m =
+  \mathtt{edwardsnowden}$ with key $k = \mathtt{nsa}$. What is the
+  resulting ciphertext $c$?
+\end{question}
+\begin{solution}
+  Your solution here
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{question}{5}
+In logic, \href{https://en.wikipedia.org/wiki/Contraposition}{contraposition} is an inference that says that a conditional statement $A \Rightarrow B$  is logically equivalent to its contrapositive  $\neg B \Rightarrow \neg A$.
+For instance, the proposition ``If the weather is good, then I'm biking to work.'' can be restated as ``If I'm not biking to work, then the weather is bad.''
+
+State the contrapositives of the following statements:
+\begin{enumerate}
+\item "If the car is broken, it does not drive."
+\item "If the weather is nice and I have time, I'm going for a bike ride."
+\item "If p is divisible by 8, then p is even."
+\item "An attacker can efficiently factorize integers, if he has a large-scale quantum computer."
+\item "I love a music album, if in every song, there is a 30-second interval that I like."
+\end{enumerate}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item a
+\item b
+\item c
+\item d
+\item e
+\end{enumerate}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{question}{2}
+  Which of the following statements are true about the Vigenère cipher?
+
+  \begin{enumerate}
+  \item  The Vigenère cipher is computationally infeasible to break if the key has length 100, even if 1000s of characters of plaintext are encrypted.
+ \item The Vigenère cipher is perfectly secret if the length of the key is equal to the length of the messages in the message space.
+\item The Vigenère cipher can always be broken, regardless of the length of the key and regardless of the length of plaintext being encrypted.
+\item A Vigenère cipher with key of length 100 can be broken (in a reasonable amount of time) using exhaustive search of the key space.
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{question}{1}
+Let us use a shift cipher on a 10-character alphabet: $\set{0,1,..,9}$. Say we have the following distribution over our message space:
+$\Pr[M=2]=0.4$ and $\Pr[M=6]=0.6$. What is the probability that the message '6' was encrypted, given that we observe ciphertext '3'?
+\end{question}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{question}{1}
+Consider the Vigenère cipher over the lowercase English alphabet, where the key can have length 1 or length 2, each with 50\% probability. Say the distribution over plaintexts is $\Pr[M=\mathtt{aa}]=0.4$ and $\Pr[M=\mathtt{ab}]=0.6$. What is $\Pr[C=\mathtt{bb}]$?
+\end{question}
+
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{question}{2}
+ Consider the following encryption scheme: The message space is $M=\set{0,\ldots,6}$. Algorithm $\gen$ chooses a uniform key from the key space $\set{0, \ldots,7}$. $\enc(m)$ returns $[k+m \mod 7]$, and $\dec_k(c)$ returns $[c-k \mod 7]$. State whether the scheme is perfectly secret and justify your answer.
+\end{question}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{programming}{5}
+Watch \href{https://www.coursera.org/learn/cryptography/lecture/01t8O/breaking-the-vigenere-cipher}{this video} and solve \href{https://www.coursera.org/learn/cryptography/supplement/7mgaE/programming-assignment-1}{programming assignment 1}. Describe the solution and submit your code. You can use an online notebook; for example Google's \href{https://colab.research.google.com}{Colab} in case you are using Python.
+\end{programming}
+
+\begin{solution}
+\end{solution}
+
+
+\end{document}
