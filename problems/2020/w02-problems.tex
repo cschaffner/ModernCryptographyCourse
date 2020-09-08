@@ -169,10 +169,12 @@ For a given $y \in \{0,1\}^{2n}$, what is $\Pr_{s \leftarrow
 Prove that Definition~3.8 cannot be
   satisfied if $\Pi$ can encrypt arbitrary-length messages and the
   adversary is not restricted to output equal-length messages in
-  experiment $\PrivK^{\eav}_{\mathcal{A},\Pi}$. \textbf{ Hint:} Let $q(n)$
+  experiment $\PrivK^{\eav}_{\mathcal{A},\Pi}$.
+
+  \textbf{ Hint:} Let $q(n)$
   be a polynomial upper-bound on the length of the cipher-text when
   $\Pi$ is used to encrypt a single bit. Then consider an adversary
-  who outputs $m_0 \in \{0, 1\}$ and a uniform $m_1 \in \{0, 1\}^{q(n)+1}$.
+  who outputs $m_0 \in \{0, 1\}$ and a uniform $m_1 \in \{0, 1\}^{q(n)+2}$. How many possible $m_1$'s can have ciphertexts of length at most $q(n)$ if the encryption scheme is perfectly correct (i.e.\ it never fails to decrypt)?
 \end{exercise}
 
 % \begin{exercise}[Exercise~3.3 from  $\text{[KL]}$ ]
