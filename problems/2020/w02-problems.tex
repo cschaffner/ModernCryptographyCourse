@@ -149,8 +149,19 @@ For a given $y \in \{0,1\}^{2n}$, what is $\Pr_{s \leftarrow
   and 0 otherwise.
   \end{enumerate}
   }
-Provide a definition of a pseudorandom generator based on this experiment, and prove that your definition is equivalent to Definition 3.14. (That is, show that $G$ satisfies your definition if and only if it satisfies Definition 3.14.)
+  Provide a definition of a pseudorandom generator based on this experiment, and prove that your definition is equivalent to Definition 3.14. (That is, show that $G$ satisfies your definition if and only if it satisfies Definition 3.14.)
 
+  \noindent \textbf{ Hint:} For proving the equivalence of the two definitions, argue why the following equalities hold
+  \begin{align*}
+    \Pr[ &\mathsf{PRF}_{\mathcal{A},G}(n) = 1 ] \\
+    &= \Pr[b=0] \cdot \Pr[ D(w) = 0 | b=0] + \Pr[b=1] \cdot \Pr[ D(w)=1 | b=1] \\
+                                               & = \Pr[b=0] \cdot \Pr[ D(r) = 0 ] + \Pr[b=1] \cdot \Pr[ D(G(s))=1 ] \\
+                                               & =\frac12 \Pr[ D(r) = 0 ] + \frac12 \Pr[ D(G(s))=1 ] \\
+                                               & =\frac12 (1 - \Pr[ D(r) = 1 ]) + \frac12 \Pr[ D(G(s))=1 ] \\    
+                                               & =\frac12 + \frac12 (\Pr[ D(G(s))=1 ] - \Pr[ D(r) = 1 ])    
+  \end{align*}
+  and use them in your proof.
+  
 \end{exercise}
 
 
