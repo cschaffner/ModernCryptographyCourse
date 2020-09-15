@@ -154,7 +154,7 @@ For a given $y \in \{0,1\}^{2n}$, what is $\Pr_{s \leftarrow
 
   \noindent \textbf{ Hint:} For proving the equivalence of the two definitions, argue why the following equalities hold
   \begin{align*}
-    \Pr[ &\mathsf{PRF}_{\mathcal{A},G}(n) = 1 ] \\
+    \Pr[ &\mathsf{PRG}_{\mathcal{A},G}(n) = 1 ] \\
     &= \Pr[b=0] \cdot \Pr[ D(w) = 0 | b=0] + \Pr[b=1] \cdot \Pr[ D(w)=1 | b=1] \\
                                                & = \Pr[b=0] \cdot \Pr[ D(r) = 0 ] + \Pr[b=1] \cdot \Pr[ D(G(s))=1 ] \\
                                                & =\frac12 \Pr[ D(r) = 0 ] + \frac12 \Pr[ D(G(s))=1 ] \\

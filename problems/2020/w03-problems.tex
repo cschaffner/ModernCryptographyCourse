@@ -105,7 +105,21 @@ $\mathcal{A}$ and the rnadomness used in the experiment (for choosing
 the bit $b$ as well as $f$ and $k$).
 
 
-Prove that the definition above is equivalent to Definition 3.25.
+Prove that the definition above is equivalent to Definition 3.25 in
+[KL].
+
+\noindent \textbf{ Hint:} For proving the equivalence of the two definitions, argue why the following equalities hold
+\begin{align*}
+  \Pr[ &\mathsf{PRF}_{\mathcal{A},F}(n) = 1 ] \\
+  &= \Pr[b=0] \cdot \Pr[ 0 \leftarrow \mathcal{A}(1^n) | b=0] + \Pr[b=1] \cdot \Pr[ 1 \leftarrow \mathcal{A}(1^n)  | b=1] \\
+                                               & = \Pr[b=0] \cdot \Pr[\mathcal{A}^{f(\cdot)} (1^n) = 0  ] + \Pr[b=1] \cdot \Pr[ \mathcal{A}^{F_k(\cdot)}(1^n) =1 ] \\
+                                               & =\frac12 \Pr[ \mathcal{A}^{f(\cdot)} (1^n) = 0 ] + \frac12 \Pr[ \mathcal{A}^{F_k(\cdot)}(1^n) =1 ] \\
+                                               & =\frac12 (1 - \Pr[  \mathcal{A}^{f(\cdot)} (1^n) = 1 ]) + \frac12 \Pr[\mathcal{A}^{F_k(\cdot)}(1^n)=1 ] \\    
+                                               & =\frac12 + \frac12 (\Pr[\mathcal{A}^{F_k(\cdot)}(1^n)=1 ] - \Pr[ \mathcal{A}^{f(\cdot)} (1^n) = 1 ])    
+  \end{align*}
+  and use them in your proof.
+  
+
 \end{exercise}
 
 
