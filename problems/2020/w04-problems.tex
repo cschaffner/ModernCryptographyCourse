@@ -26,8 +26,14 @@
 \begin{exercise}[Short tags]
 Say $\Pi=(\mathsf{Gen},\mathsf{Mac},\mathsf{Vrfy})$ is a secure MAC, and for $k\in\{0,1\}^n$ the tag-generation algorithm $\mathsf{Mac}_k$ always outputs tags of length $t(n)$. Prove that $t$ must be super-logarithmic or, equivalently, that if $t(n)=O(\log n)$ then $\Pi$ cannot be a secure MAC
 
-\textbf{Hint:} Consider the probability of randomly guessing a valid tag.
+\noindent \textbf{Hint:} Consider the probability of randomly guessing a valid tag.
+
+\begin{subex**}
+	Construct an efficient algorithm that breaks SHA-1.\\
+	\textbf{Hint: Why do hash functions have a key in [KL]?}
+\end{subex**}
 \end{exercise}
+
 
 \begin{exercise}[A simple MAC from a PRF ]
 Consider the following MAC for messages of length $\ell(n)=2n-2$ using a pseudorandom function $F$: On input a message $m_0\Vert m_1$ (with $|m_0|=|m_1|=n-1$) and key $k\in\{0,1\}^n$, algorithm $\mathsf{Mac}$ outputs $t=F_k(0\Vert m_0)\Vert F_k(1\Vert m_1)$. Algorithm $\mathsf{Vrfy}$ is defined in the natural way. Is $(\mathsf{Gen},\mathsf{Mac},\mathsf{Vrfy})$ secure? Prove your answer.
@@ -101,11 +107,6 @@ Section 5.4.2 in [KL] describes a variant of the birthday attack that uses only 
 	\item Argue that there could be collision-resistant hash functions where this attack never succeeds.
 	\item Prove that any collision-resistant hash function $H$ is literally collision-free for inputs of length $O(\log n)$, i.e. $H(x)\neq H(x')$ for $x\neq x'$ for $|x|=O(\log n)$
 \end{enumerate}
-\end{bonusexercise}
-
-\begin{bonusexercise}[SHA-1]
-	Construct an efficient algorithm that breaks SHA-1.\\
-	\textbf{Hint: Why do hash functions have a key in [KL]?}
 \end{bonusexercise}
 
 
