@@ -23,7 +23,7 @@
 
 \problems
 
-\begin{exercise}[Fermat's little theorem and modular arithmetic.]
+\begin{exercise}[Fermat's little theorem and Euclidean algorithm]
 \begin{subex}[Modular roots]
 Show that the 7th root of 47 modulo 143 is $$[47^{103} \mod 143].$$ Note that $143=11\cdot 13$.
 \end{subex}
@@ -34,13 +34,17 @@ Compute the final two (decimal) digits of $3^{1000}$ (by hand).
 \textbf{Hint:} The answer is $[3^{1000} \mod 100]$. If $\text{gcd}(a,b)=1$, then $\phi(a\cdot b)=\phi(a)\cdot\phi(b)$.
 \end{subex}
 
-\begin{subex}[Modular arithmetic.]
-Let $p$,$N$ be integers with $p|N$ (i.e.\ $p$ divides $N$). Prove that for any integer $X$,
-\begin{equation*}
-[[X \mod N]\mod p]=[X \mod p].
-\end{equation*}
-Show that, in contrast, $[[X \mod p]\mod N]$ need not equal $[X\mod N]$.
+\begin{subex} Use the extended Euclidean algorithm to compute (by
+  hand) the modular inverse of 20 modulo 457. Verify your answer with WolframAlpha.
 \end{subex}
+
+% \begin{subex}[Modular arithmetic.]
+% Let $p$,$N$ be integers with $p|N$ (i.e.\ $p$ divides $N$). Prove that for any integer $X$,
+% \begin{equation*}
+% [[X \mod N]\mod p]=[X \mod p].
+% \end{equation*}
+% Show that, in contrast, $[[X \mod p]\mod N]$ need not equal $[X\mod N]$.
+% \end{subex}
 
 \end{exercise}
 
