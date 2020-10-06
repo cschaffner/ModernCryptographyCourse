@@ -36,6 +36,12 @@ Compute the encryption of message $m=19 \in \mathbb{G}$ with randomness $y=44$.
 \begin{subex}
 Decrypt the ciphertext $\langle c_1,c_2 \rangle = \langle 132,44 \rangle$.
 \end{subex}
+\begin{subex}
+  You happen to have overheard another ciphertext $\langle c_1,c_2
+  \rangle = \langle 28,149 \rangle$, and you know that it was
+  encrypted with the private key corresponding to a different public key $\langle
+  p,q,g,h \rangle = \langle 167,83,4,6 \rangle$. What was the message?
+\end{subex}
 \end{exercise}
 
 \begin{exercise}[RSA]
@@ -86,9 +92,7 @@ how is the guess bit $b'$ computed? Then compute
 $\Pr[\mathsf{PubK}^{\mathsf{cca}}_{\mathcal{A}, \Pi'}(n)=1]$!
 \end{exercise}
 
-
-
-\newpage
+\enlargethispage{1cm}
 
 \begin{exercise}[RSA Signatures]
 \begin{subex}[Plain RSA Signatures]
@@ -151,12 +155,19 @@ forgery on any message $j > i$ except with negligible probability.
 	\begin{enumerate}
 		\item If $b=0$ then choose independent random $y,z \leftarrow \mathbb{Z}_q$, compute $c_1 = g^y$ and $c_2 = g^z$, and set the ciphertext equal to $(c_1, c_2)$.
 		\item If $b = 1$ then choose a random $y\leftarrow \mathbb{Z}_q$ and compute $c_1 =g^y$ and $c_2 = h^y$. The ciphertext is $(c_1, c_2)$.
-	\end{enumerate}
-	Show that it is possible to decrypt efficiently given knowledge of $x$. Prove that this encryption scheme is CPA-secure if the decisional Diffie-Hellman problem is hard relative to $\mathcal{G}$.
-\end{exercise}
+                \end{enumerate}
+\begin{subex}                
+	Show that it is possible to decrypt efficiently given
+        knowledge of $x$.
+      \end{subex}
+\begin{subex}
+      Prove that this encryption scheme is CPA-secure if the
+      decisional Diffie-Hellman problem is hard relative to
+      $\mathcal{G}$.
+    \end{subex}
+  \end{exercise}
 
 
-\newpage
 
 \begin{bonusexercise}[Perfectly secure public-key encryption?]
 	Assume a public-key encryption scheme for single-bit messages with no
