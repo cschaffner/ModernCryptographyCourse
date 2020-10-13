@@ -24,27 +24,28 @@
 
 \problems
 
-\begin{exercise}[RSA Signatures]
-\begin{subex}
-Consider the plain RSA signature scheme with modulus $N = 85 = 5 \cdot 17$.
-\begin{enumerate}
-\item  Compute $\phi(N)$.
-\item  Say the public exponent is $e = 5$. Find the private exponent $d$. (Hint: look at
-the sequence $\phi(N)+1, 2\cdot \phi(N)+1, \ldots$ until you find a multiple of $e$.)
-\item  Compute the signature on the message $3$.\\\textbf{Hint: } Note that $[3^4 \mod 85] = [81 \mod 85] = [(-4) \mod 85]$.
-\end{enumerate}
-\end{subex}
-\begin{subex}
-Consider a \emph{padded} RSA signature scheme, where to sign a message $m \in \{0, 1\}^{80}$
-the signer chooses random $r$ with $r \| m < N$ (where $\|$ denotes concatenation),
-computes $\sigma = [(r \| m)^d \mod N ]$, and outputs signature $\sigma$.
-\begin{enumerate}
-\item  How would verification be done?
-\item  Is this scheme secure? If yes, give a 1-2 sentence explanation; if not, show
-an attack.
-\end{enumerate}
-\end{subex}
-\end{exercise}
+% This problem is now homework
+% \begin{exercise}[RSA Signatures]
+% \begin{subex}
+% Consider the plain RSA signature scheme with modulus $N = 85 = 5 \cdot 17$.
+% \begin{enumerate}
+% \item  Compute $\phi(N)$.
+% \item  Say the public exponent is $e = 5$. Find the private exponent $d$. (Hint: look at
+% the sequence $\phi(N)+1, 2\cdot \phi(N)+1, \ldots$ until you find a multiple of $e$.)
+% \item  Compute the signature on the message $3$.\\\textbf{Hint: } Note that $[3^4 \mod 85] = [81 \mod 85] = [(-4) \mod 85]$.
+% \end{enumerate}
+% \end{subex}
+% \begin{subex}
+% Consider a \emph{padded} RSA signature scheme, where to sign a message $m \in \{0, 1\}^{80}$
+% the signer chooses random $r$ with $r \| m < N$ (where $\|$ denotes concatenation),
+% computes $\sigma = [(r \| m)^d \mod N ]$, and outputs signature $\sigma$.
+% \begin{enumerate}
+% \item  How would verification be done?
+% \item  Is this scheme secure? If yes, give a 1-2 sentence explanation; if not, show
+% an attack.
+% \end{enumerate}
+% \end{subex}
+% \end{exercise}
 
 
 \begin{exercise}[Not a PRF]
@@ -106,13 +107,43 @@ the ciphertext $c_0 , \ldots c_{\ell}$.
 How would decryption of a ciphertext $c_0,  \ldots , c_{\ell}$ be done?
 \end{subex}
 \begin{subex}
-Describe and analyze an explicit attack showing that this scheme is not EAV-
-secure.
+Is this scheme EAV-secure? If yes, give a proof; if not, describe an explicit attack.
 \end{subex}
 \begin{subex}
 Is this scheme CPA-secure? Provide a brief justification of your answer.
 \end{subex}
 \end{exercise}
+
+
+\begin{exercise}[Breaking El Gamal Encryption with a Quantum Computer]
+Recall that the El Gamal encryption scheme is given as follows:
+The key generation algorithm $\mathsf{Gen}$ on input $1^n$ generates a triple $(G, q, g)$ where $G$ is a cyclic group of order $q$ and $g$ is a generator of $G$. Then it chooses a uniform $x \leftarrow \mathbb{Z}_q$ and computes $h = g^x$. The public key is $(G, q,g,h)$ and the private key is $(G, q,g,x)$.
+The encryption algorithm $\mathsf{Enc}$: on input a public key $(G, q,g, h)$ and message $m$, chooses a uniform $y \leftarrow \mathbb{Z}_q$ and outputs $\langle g^y, h^y \cdot m\rangle. $ 
+Decryption $\mathsf{Dec}$: on input private key $(G, q,g,x)$ and ciphertext $\langle c_1, c_2\rangle$ computes $ \hat{m} = c_2 / c_1^x$. 
+
+\begin{subex}
+Give a sufficient condition under which the El Gamal scheme is CPA secure.
+\end{subex}
+
+\begin{subex}
+Assume you have oracle access to a quantum computer that can
+efficiently calculate discrete logarithms in $G$ with respect to the
+generator $g$. Give an explicit CPA attacker on this scheme.
+\end{subex}
+
+\medskip
+For the next two subexercises, consider the specific case of the cyclic group $\mathbb{G}=\mathbb{Z}_{37}^*$ with generator $g=2$. Assume $x=6$ is chosen during the key generation.
+\begin{subex}
+  What are the actual values of $q$ and $h$ in the resulting public key $\mathsf{pk}=\langle \mathbb{G},q,g,h \rangle$? Show your calculations.
+\end{subex}
+
+\begin{subex}
+  Using the public key from the previous part, encrypt the message $m = 7$. You can assume any randomness $y$ that you want.
+\end{subex}
+
+\end{exercise}
+
+
 
 \begin{exercise}[Padded RSA]
 	Let $\tilde \Pi=(\tilde\gen, \tilde \enc, \tilde \dec)$ be the plain RSA encryption scheme for $2 n$ bit messages, and consider the
@@ -121,6 +152,5 @@ Is this scheme CPA-secure? Provide a brief justification of your answer.
 		Find a chosen-ciphertext attack on $\Pi$. Give a precise description of an adversary $\mathcal A$, using the notation introduced for the indistinguishability experiments. Avoid imprecise verbose descriptions. Calculate the success probability $\mathcal A$.
 	\end{subex}
 \end{exercise}
-
 
 \end{document}
