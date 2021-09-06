@@ -137,7 +137,7 @@ For a given $y \in \{0,1\}^{2n}$, what is $\Pr_{s \leftarrow
 \caption{The $\mathsf{PRG}_{\mathcal{D},G}$ experiment \label{fig:prg-exp}}
 \end{figure}
 
-\begin{exercise}[Exercise~3.5 from  $\text{[KL]}$ ]
+\begin{exercise}[Exercise~3.7 from  $\text{[KL]}$ ]
   Let $|G(s)| = \ell(|s|)$ for some $\ell$. Consider the following experiment:
 
   \textbf{The PRG indistinguishability experiment} $\mathsf{PRG}_{\mathcal{A},G}(n)$, see also Figure~\ref{fig:prg-exp}:
@@ -177,8 +177,8 @@ Prove the equivalence of Definition 3.8 and Definition 3.9 from the book [KL].
 % Let $G:\{0,1\}^n \rightarrow \{0,1\}^{2n}$ be a PRG. Describe a \emph{computationally unbounded} adversary $\mathcal{A}$ that distinguishes the output of $G$ from a uniform $2n$-bit string with probability exponentially close 1. How does it work? Compute its exact distinguishing advantage. What is $\Pr[\mathsf{PRG}_{\mathcal{A},G}(n)=1]$ for this adversary?
 % \end{bonusexercise}
 
-\begin{bonusexercise}[Exercise~3.7 from $\text{[KL]}$ ]
-Prove the converse of Theorem 3.18. Namely, show that if $G$ is not a pseudorandom generator then Construction 3.17 does not have indistinguishable encryptions in the presence of an eavesdropper.
+\begin{bonusexercise}[Exercise~3.8 from $\text{[KL]}$ ]
+Prove the converse of Theorem 3.16. Namely, show that if $G$ is not a pseudorandom generator then Construction 3.17 does not have indistinguishable encryptions in the presence of an eavesdropper.
 \end{bonusexercise}
 
 
