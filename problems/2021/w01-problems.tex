@@ -139,28 +139,8 @@ Complete the table to form a perfectly secret encryption scheme.
 When using the one-time pad with the key $k=0^n$, we have that $\enc_k(m)=k \oplus m = m$ and the message is sent in the clear! It has therefore been suggested to modify the one-time pad by only encrypting with $k \neq 0^n$ (i.e., to have \gen choose $k$ uniformly from the set of \emph{nonzero} keys of length $n$). Is this modified scheme still perfectly secret? Explain.
 \end{exercise}
 
-\begin{exercise}[$\bigstar$ Birthday paradox]
-This exercise deals with some basic probability as described in Appendix A.3 of the book [KL]. Compute the probability that there exists two students in the room that have the same birthday (ignoring the birth year).
-\end{exercise}
-
-\begin{exercise}[$\bigstar$ Asymptotic growth rate]
-Let $\eps$ and $c$ be arbitrary constants such that $0<\eps<1<c$. Order the following terms in increasing order of their
-  asymptotic growth rates.
-\[ n^n \quad \exp(\sqrt{n}) \quad 1 \quad \log\log n \quad
-c^{c^n} \quad n^c \quad n^\eps \quad n^{\log n} \quad \log n \quad c^n
-\]
-{\small Hint: In some cases, it might help to express two terms you
-  want to compare in the form $e^{\ldots}$ and then compare their
-  exponents.}
-
-{\small Another hint: One can prove that for any positive polynomial
-  $p(n)$, any constant $\eps>0$ and large enough $n$, it holds that
-  $p(\log(n)) < n^\eps$. You may simply use this fact, or you can try
-  to prove it.}
-\end{exercise}
-
 \enlargethispage{2cm}
-\begin{exercise}[$\bigstar$ Logical Contrapositives]
+\begin{exercise}[Logical Contrapositives]
 In logic, \href{https://en.wikipedia.org/wiki/Contraposition}{contraposition} is an inference that says that a conditional statement $A \Rightarrow B$ is logically equivalent to its contrapositive $\neg B \Rightarrow \neg A$. For instance, the proposition ``If the weather is good, then I'm biking to work.'' can be restated as ``If I'm not biking to work, then the weather is bad.''
 
 State the contrapositive of the following statements:
@@ -186,6 +166,27 @@ I have read the book, if I have read every sentence of it.
 If for every theorem in this book a proof is given, then it is a
 good math book.
 \end{subex}
+\end{exercise}
+
+
+\begin{exercise}[$\bigstar$ Birthday paradox]
+This exercise deals with some basic probability as described in Appendix A.4 of the book [KL]. Compute the probability that there exists two students in the room that have the same birthday (ignoring the birth year).
+\end{exercise}
+
+\begin{exercise}[$\bigstar$ Asymptotic growth rate]
+Let $\eps$ and $c$ be arbitrary constants such that $0<\eps<1<c$. Order the following terms in increasing order of their
+  asymptotic growth rates.
+\[ n^n \quad \exp(\sqrt{n}) \quad 1 \quad \log\log n \quad
+c^{c^n} \quad n^c \quad n^\eps \quad n^{\log n} \quad \log n \quad c^n
+\]
+{\small Hint: In some cases, it might help to express two terms you
+  want to compare in the form $e^{\ldots}$ and then compare their
+  exponents.}
+
+{\small Another hint: One can prove that for any positive polynomial
+  $p(n)$, any constant $\eps>0$ and large enough $n$, it holds that
+  $p(\log(n)) < n^\eps$. You may simply use this fact, or you can try
+  to prove it.}
 \end{exercise}
 
 \end{document}
