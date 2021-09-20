@@ -105,19 +105,30 @@ $\mathcal{A}$ and the rnadomness used in the experiment (for choosing
 the bit $b$ as well as $f$ and $k$).
 
 
-Prove that the definition above is equivalent to Definition 3.24.
+Prove that the definition above is equivalent to Definition 3.24  in
+[KL].
+
+\noindent \textbf{ Hint:} For proving the equivalence of the two definitions, argue why the following equalities hold
+\begin{align*}
+  \Pr[ &\mathsf{PRF}_{\mathcal{A},F}(n) = 1 ] \\
+  &= \Pr[b=0] \cdot \Pr[ 0 \leftarrow \mathcal{A}(1^n) | b=0] + \Pr[b=1] \cdot \Pr[ 1 \leftarrow \mathcal{A}(1^n)  | b=1] \\
+                                               & = \Pr[b=0] \cdot \Pr[\mathcal{A}^{f(\cdot)} (1^n) = 0  ] + \Pr[b=1] \cdot \Pr[ \mathcal{A}^{F_k(\cdot)}(1^n) =1 ] \\
+                                               & =\frac12 \Pr[ \mathcal{A}^{f(\cdot)} (1^n) = 0 ] + \frac12 \Pr[ \mathcal{A}^{F_k(\cdot)}(1^n) =1 ] \\
+                                               & =\frac12 (1 - \Pr[  \mathcal{A}^{f(\cdot)} (1^n) = 1 ]) + \frac12 \Pr[\mathcal{A}^{F_k(\cdot)}(1^n)=1 ] \\    
+                                               & =\frac12 + \frac12 (\Pr[\mathcal{A}^{F_k(\cdot)}(1^n)=1 ] - \Pr[ \mathcal{A}^{f(\cdot)} (1^n) = 1 ])    
+  \end{align*}
+  and use them in your proof.
 \end{exercise}
 
 
-\begin{exercise}[Exercise~3.20 from  $\text{[KL]}$ ]
+\begin{exercise}[Stateful CBC-mode]
   Consider a stateful variant of CBC-mode encryption where the sender simply increments the $IV$ by 1 each time a message is encrypted (rather than choosing $IV$ at random each time). Show that the resulting scheme is \emph{not} CPA-secure.
 \end{exercise}
 
-\begin{exercise}[Exercise~3.28 from $\text{[KL]}$ ]
-Show that the CBC, OFB, and CTR modes of operation do not yield CCA-secure encryption schemes (regardless of $F$). Consider encryptions and decryptions of only single-block messages.
+\begin{exercise}[Exercise~5.1 from $\text{[KL]}$ ] Show that the CBC, OFB, and CTR modes of operation do not yield CCA-secure encryption schemes (regardless of $F$). Consider encryptions and decryptions of only single-block messages. Give explicit descriptions of the attacker and compute the success probability.
 \end{exercise}
 
-\begin{exercise}[Exercise~3.29 from $\text{[KL]}$ ]
+\begin{exercise}[Combiner for CPA security]
   Let $\Pi_1 = (\gen_1,\enc_1, \dec_1)$ and $\Pi_2 = (\gen_2,\enc_2, \dec_2)$ be two encryption schemes for which it is known that at least one is CPA-secure (but you don't know which one). Show how to construct an encryption scheme $\Pi$ that is guaranteed to be CPA-secure as long as at least one of $\Pi_1$ or $\Pi_2$ is CPA-secure. Provide a full proof of your solution.
 
   \textbf{Hint:} Generate two plaintext messages from the original plaintext so that knowledge of either one reveals nothing about the original plaintext, but knowledge of both enables the original plaintext to be computed.
@@ -131,20 +142,12 @@ Show that the CBC, OFB, and CTR modes of operation do not yield CCA-secure encry
 %\end{bonusexercise}
 
 
-\begin{bonusexercise}[Exercise~3.9 from  $\text{[KL]}$ ]
-  Prove \emph{unconditionally} the existence of a pseudorandom function $F : \{0,1\}^{n^2} \times \{0,1\}^{\log(n)} \to \{0,1\}^n$.
+\begin{bonusexercise}[Exercise~3.10 from  $\text{[KL]}$ ]
+  Prove \emph{unconditionally} the existence of a pseudorandom function $F : \{0,1\}^{n} \times \{0,1\}^{\log(n)} \to \{0,1\}$.
 
-  \textbf{Hint:} Use the function input as index to select part of the key.
+  \textbf{Hint:} Implement a \emph{uniform} function with logarithmic input length. Use the function input as index to select part of the key.
 \end{bonusexercise}
 
-\begin{bonusexercise}[Exercise~3.16 from $\text{[KL]}$ ]
-  Prove Proposition 3.27:
-  \textit{
-If $F$ is a pseudorandom permutation and additionally $\ell_{in}(n) \geq n$, then $F$ is also a pseudorandom function.
-  }
-
-\textbf{Hint:} Use the results of Appendix A.4.
-\end{bonusexercise}
 
 %\begin{bonusexercise}[Exercise~3.26 from $\text{[KL]}$ ]
 %  For any function $g : \{0, 1\}^n \to \{0, 1\}^n$ , define $g^{\$} (·)$ to be a probabilistic oracle that, on input $1^n$, chooses uniform $r \in \{0, 1\}^n$ and returns $\langle r, g(r)\rangle$. A keyed function $F$ is a \emph{weak pseudorandom function} if for all PPT algorithms $D$, there exists a negligible function $\mathsf{negl}$ such that:
