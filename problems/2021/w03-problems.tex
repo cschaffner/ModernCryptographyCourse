@@ -121,25 +121,28 @@ Prove that the definition above is equivalent to Definition 3.24  in
 \end{exercise}
 
 
-\begin{exercise}[Stateful CBC-mode]
+\begin{exercise}[Stateful CBC-mode?]
   Consider a stateful variant of CBC-mode encryption where the sender simply increments the $IV$ by 1 each time a message is encrypted (rather than choosing $IV$ at random each time). Show that the resulting scheme is \emph{not} CPA-secure.
 \end{exercise}
+
+\begin{exercise}[Effects of Communication Errors]
+  \begin{subex}
+    What is the effect of a single bit flip in the ciphertext when using the CBC, OFB and CTR modes of operation?
+  \end{subex}
+  \begin{subex}
+    What is the effect of a dropped ciphertext block (e.g., if the transmitted ciphertext $c_0, c_1, c_2, c_3 \ldots$ is received as $c_0, c_2, c_3, \ldots$) when using the CBC, OFB, and CTR modes of operation?
+  \end{subex}
+\end{exercise}
+
 
 \begin{exercise}[Exercise~5.1 from $\text{[KL]}$ ] Show that the CBC, OFB, and CTR modes of operation do not yield CCA-secure encryption schemes (regardless of $F$). Consider encryptions and decryptions of only single-block messages. Give explicit descriptions of the attacker and compute the success probability.
 \end{exercise}
 
 \begin{exercise}[Combiner for CPA security]
-  Let $\Pi_1 = (\gen_1,\enc_1, \dec_1)$ and $\Pi_2 = (\gen_2,\enc_2, \dec_2)$ be two encryption schemes for which it is known that at least one is CPA-secure (but you don't know which one). Show how to construct an encryption scheme $\Pi$ that is guaranteed to be CPA-secure as long as at least one of $\Pi_1$ or $\Pi_2$ is CPA-secure. Provide a full proof of your solution.
+  Let $\Pi_1 = (\gen_1,\enc_1, \dec_1)$ and $\Pi_2 = (\gen_2,\enc_2, \dec_2)$ be two encryption schemes for which it is known that at least one is CPA-secure (but you don't know which one). Show how to construct an encryption scheme $\Pi$ that is guaranteed to be CPA-secure as long as at least one of $\Pi_1$ or $\Pi_2$ is CPA-secure. Argue why your construction is secure.
 
-  \textbf{Hint:} Generate two plaintext messages from the original plaintext so that knowledge of either one reveals nothing about the original plaintext, but knowledge of both enables the original plaintext to be computed.
+  \textbf{Hint:} Generate two plaintext messages from the original plaintext so that knowledge of either one reveals nothing about the original plaintext, but knowledge of both enables the original plaintext to be computed. Try to get some inspiration from the one-time pad!
 \end{exercise}
-
-
-
-%\begin{bonusexercise}[Exercise~3.14 from $\text{[KL]}$ ]
-%Argue that if $F$ is a length-preserving pseudorandom function, then
-%$G(s) := F_s(1)\Vert F_s(2)\Vert \cdots \Vert F_s(\ell)$ is a pseudorandom generator with expansion factor $\ell \cdot n$.
-%\end{bonusexercise}
 
 
 \begin{bonusexercise}[Exercise~3.10 from  $\text{[KL]}$ ]
@@ -147,6 +150,11 @@ Prove that the definition above is equivalent to Definition 3.24  in
 
   \textbf{Hint:} Implement a \emph{uniform} function with logarithmic input length. Use the function input as index to select part of the key.
 \end{bonusexercise}
+
+\begin{bonusexercise}[Exercise~3.18 from  $\text{[KL]}$ ]
+Define a notion of pefect secrecy against chosen-plaintext attacks by adapting Definition~3.21. Show that the definition cannot be achieved.
+\end{bonusexercise}
+
 
 
 %\begin{bonusexercise}[Exercise~3.26 from $\text{[KL]}$ ]
