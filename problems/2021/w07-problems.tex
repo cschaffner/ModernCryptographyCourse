@@ -26,7 +26,7 @@
 
 \begin{exercise}[RSA Signatures]
 \begin{subex}
-Consider the plain RSA signature scheme with modulus $N = 85 = 5 \cdot 17$.
+Consider the plain RSA signature scheme with modulus $N = 85 = 5 \cdot 17$. Perform the following computations by hand!
 \begin{enumerate}
 \item  Compute $\phi(N)$.
 \item  Say the public exponent is $e = 5$. Find the private exponent $d$. (Hint: look at
@@ -48,7 +48,7 @@ an attack.
 
 
 \begin{exercise}[Not a PRF]
-Consider the keyed function $H : \{0, 1\}^n \times \{0, 1\}^n \rightarrow \{0, 1\}^{2n}$ defined as: $H_k(x) = G(k) \oplus G(x)$, where $G: \{0, 1\}^n \rightarrow \{0, 1\}^{2n}$ is a pseudorandom generator.
+Consider the keyed function $H : \{0, 1\}^n \times \{0, 1\}^n \rightarrow \{0, 1\}^{2n}$ defined as: $H_k(x) := G(k) \oplus G(x)$, where $G: \{0, 1\}^n \rightarrow \{0, 1\}^{2n}$ is a pseudorandom generator.
 \begin{subex}
 Describe and formally analyze an explicit attack showing that $H$ is not a PRF.
 \end{subex}
