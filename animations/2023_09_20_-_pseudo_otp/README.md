@@ -1,6 +1,6 @@
 # Animation pseudo OTP
 
-I made a (very young and not yet stable nor properly documented) manim library to generate animations. To generate the animation, install manim (if you have nix, just run `nix-shell -p manim`) and run:
+Leo Colisson (leo.colisson@cwi.nl) made a (very young and not yet stable nor properly documented) manim library to generate animations. To generate the animation, install manim (if you have nix, just run `nix-shell -p manim`) and run:
 
 ```bash
 manim -pqh pseudo_otp.py --fps 24 Demo
